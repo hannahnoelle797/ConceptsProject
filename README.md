@@ -1,4 +1,4 @@
-# Julia Interpreter Project 
+# ConceptsProject  
 
 ### By Hannah Duncan, Colleen Hynes, and Mary Le  
 
