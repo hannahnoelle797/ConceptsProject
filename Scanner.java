@@ -2,11 +2,11 @@ import java.util.Arrays;
 
 public class Scanner {
 
-    private String[] reserved_words = { "do", "else", "elseif", "end", "false", "for", "function", "if", "print",
-            "return", "true", "while" };
-    private String[] braces = { "(", ")", "{", "}", "[", "]" };
-    private String[] operators = { "+", "-", "*", "/", "=" };
-    private String[] comparison = { "<", ">", "<=", ">=", "==", "!=" };
+    // private String[] reserved_words = { "do", "else", "elseif", "end", "false",
+    // "for", "function", "if", "print", "return","true","while"};
+    // private String[] braces = { "(", ")", "{", "}", "[", "]" };
+    // private String[] operators = { "+", "-", "*", "/", "=" };
+    // private String[] comparison = { "<", ">", "<=", ">=", "==", "!=" };
     private String[][] tokens = {
             { "do", "else", "elseif", "end", "false", "for", "function", "if", "print", "return", "true", "while" },
             { "(", ")", "{", "}", "[", "]" }, { "+", "-", "*", "/", "=" }, { "<", ">", "<=", ">=", "==", "!=" } };
