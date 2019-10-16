@@ -1,0 +1,6 @@
+Lexeme: print	Token: reserved word
+Lexeme: (	Token: bracket
+Lexeme: "	Token: bracket
+Lexeme: Hello, World!	Token: user variable
+Lexeme: "	Token: bracket
+Lexeme: )	Token: bracket
