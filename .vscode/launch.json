@@ -2,58 +2,31 @@
     "configurations": [
         {
             "type": "java",
-            "name": "CodeLens (Launch) - ScanXan",
+            "name": "CodeLens (Launch) - MyScanner3",
             "request": "launch",
-            "mainClass": "ScanXan",
-            "projectName": "ConceptsProject_bfd3b98e"
+            "mainClass": "MyScanner3",
+            "projectName": "ConceptsProject_6f48d9a6"
         },
         {
             "type": "java",
-            "name": "CodeLens (Launch) - OpenAndReadFile",
+            "name": "CodeLens (Launch) - Demo2",
             "request": "launch",
-            "mainClass": "OpenAndReadFile",
-            "projectName": "ConceptsProject_bfd3b98e"
+            "mainClass": "Demo2",
+            "projectName": "ConceptsProject_6f48d9a6"
         },
         {
             "type": "java",
-            "name": "CodeLens (Launch) - myScanner",
+            "name": "CodeLens (Launch) - Demo",
             "request": "launch",
-            "mainClass": "myScanner",
-            "projectName": "ConceptsProject_bfd3b98e"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - helloworld",
-            "request": "launch",
-            "mainClass": "helloworld",
-            "projectName": "ConceptsProject_bfd3b98e"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - ScannerMain",
-            "request": "launch",
-            "mainClass": "ScannerMain",
-            "projectName": "ConceptsProject_bfd3b98e"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - Scanner",
-            "request": "launch",
-            "mainClass": "Scanner",
-            "projectName": "ConceptsProject_bfd3b98e"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - HelloWorld",
-            "request": "launch",
-            "mainClass": "HelloWorld",
-            "projectName": "ConceptsProject_bfd3b98e"
+            "mainClass": "Demo",
+            "projectName": "ConceptsProject_6f48d9a6"
         },
         {
             "type": "java",
             "name": "CodeLens (Launch) - test",
             "request": "launch",
-            "mainClass": "test"
+            "mainClass": "test",
+            "projectName": "ConceptsProject_6f48d9a6"
         }
     ]
 }

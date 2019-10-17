@@ -1,0 +1,6 @@
+x = 7
+if x % 2 == 0
+    print(7+1)
+else
+    print(7)
+end
