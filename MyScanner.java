@@ -1,81 +1,56 @@
 import java.util.Arrays;
+import java.util.ArrayList;
 
-public class MyScanner {
+public class MyScanner2 {
 
     // private String[] reserved_words = { "do", "else", "elseif", "end", "false",
     // "for", "function", "if", "print", "return","true","while"};
     // private String[] braces = { "(", ")", "{", "}", "[", "]" };
     // private String[] operators = { "+", "-", "*", "/", "=" };
     // private String[] comparison = { "<", ">", "<=", ">=", "==", "!=" };
-    private String[][] tokens = {
-            /* reserved words */ { "do", "else", "elseif", "end", "false", "for", "function", "if", "print", "return",
-                    "true", "while" },
-            /* braces */ { "(", ")", "{", "}", "[", "]", "\"" }, /* operators */ { "+", "-", "*", "/", "=" },
-            /* comparison */ { "<", ">", "<=", ">=", "==", "!=" }, /* user variables */ { " " } };
+    private ArrayList<String> lexemes = new ArrayList<>(Arrays.asList("do", "else", "elseif", "end", "false", "for",
+            "function", "if", "print", "return", "true", "while", "(", ")", "{", "}", "[", "]", "\"", "+", "-", "*",
+            "/", "%", "=", "<", ">", "<=", ">=", "==", "!="));
+    private ArrayList<String> tokens = new ArrayList<>(Arrays.asList("do_statement", "else_statement",
+            "else_if_statement", "end_statement", "boolean_false", "for_statement", "function_statment", "if_statement",
+            "print_statement", "return_statement", "boolean_true", "while_statement", "parenthesis_open",
+            "parenthesis_closed", "curly_open", "curly_closed", "square_open", "square_closed", "back_slash",
+            "add_operator", "sub_operator", "mul_operator", "div_operator", "mod_operator", "eq_operator",
+            "lt_operator", "gt_operator", "le_operator", "ge_operator", "eqal_operator", "ne_operator"));
 
-    public MyScanner() {
+    String[] lexeme = { "DNE", "DNE" };
+
+    public MyScanner2() {
     }
 
-    public String[][] if_exists(String lex) {
+    public boolean if_exists(String lex) {
         // Returns string array containing token type and index
-        String[][] lexeme = { { "type" }, { "0", "0" } };
+        resetLexeme();
 
-        for (int i = 0; i < tokens.length; i++) {
-            if (Arrays.asList(tokens[i]).contains(lex)) {
-                switch (i) {
-                case 0:
-                    lexeme[0][0] = "reserved word";
-                    break;
-                case 1:
-                    lexeme[0][0] = "bracket";
-                    break;
-                case 2:
-                    lexeme[0][0] = "arithmetic operator";
-                    break;
-                case 3:
-                    lexeme[0][0] = "relative operator";
-                    break;
-                default:
-                    lexeme[0][0] = "DNE";
-                    break;
-                }
-                if (!lexeme[0][0].equals("DNE")) {
-                    lexeme[1][0] = Integer.toString(i);
-                    lexeme[1][1] = Integer.toString(Arrays.asList(tokens[i]).indexOf(lex));
-                    return lexeme;
-                }
-            } else {
-                lexeme[0][0] = "DNE";
-                lexeme[1][0] = "0";
-                lexeme[1][1] = "0";
-            }
+        if (lexemes.contains(lex)) {
+
+            int index = lexemes.indexOf(lex);
+            lexeme[0] = lexemes.get(index);
+            lexeme[1] = tokens.get(index);
+            return true;
         }
+        return false;
 
+    }
+
+    public String[] returnLexeme() {
         return lexeme;
     }
 
-    public String[][] setUserVariable(String var, String type) {
-        if (tokens[4][0].equals(" "))
-            tokens[4][0] = var;
-        else
-            tokens[4] = addVariable(tokens[4], var);
-        int idx2 = Arrays.asList(tokens[4]).indexOf(var);
-        String[][] lexeme = { { type }, { "4", Integer.toString(idx2) } };
+    private void resetLexeme() {
+        lexeme[0] = "DNE";
+        lexeme[1] = "DNE";
+    }
+
+    public String[] setUserVariable(String lex, String tok) {
+        lexemes.add(lex);
+        tokens.add(tok);
+        String[] lexeme = { lex, tok };
         return lexeme;
-    }
-
-    public String[] addVariable(String[] arr, String var) {
-        String[] newArr = new String[arr.length + 1];
-        for (int i = 0; i < arr.length; i++) {
-            newArr[i] = arr[i];
-        }
-        newArr[newArr.length - 1] = var;
-        return newArr;
-    }
-
-    public String getLexeme(String[][] lex) {
-        int index1 = Integer.parseInt(lex[1][0]);
-        int index2 = Integer.parseInt(lex[1][1]);
-        return tokens[index1][index2];
     }
 }

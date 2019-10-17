@@ -5,56 +5,89 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Demo {
+public class Demo2 {
+
+    static FileWriter fw;
+    static int lineNum = 0;
+
     public static void main(String[] args) {
         Scanner kb = new Scanner(System.in);
 
-        String[][] lexeme;
-        String type = "user variable";
-        ArrayList<String[][]> lexemes = new ArrayList<>();
-
-        MyScanner ms = new MyScanner();
+        MyScanner2 ms = new MyScanner2();
+        String[] l;
+        String[] newInt;
 
         System.out.print("Enter name of Julia file with .txt extension: ");
         String filename = kb.nextLine();
         try {
             File file = new File(filename);
-            Scanner fileRead = new Scanner(file);
 
-            while (fileRead.hasNextLine()) {
-                String data = fileRead.nextLine();
-                int start = 0;
-                String sub = "", prevLex = "";
-                for (int i = 0; i < data.length(); i++) {
-                    System.out.println("Previous Lexeme: " + prevLex);
-                    sub = data.substring(start, (i + 1));
-                    lexeme = ms.if_exists(sub);
-                    if (sub.length() > 1) {
-                        if (!lexeme[0][0].equalsIgnoreCase("DNE")) {
-                            lexemes.add(lexeme);
-                            prevLex = ms.getLexeme(lexeme);
-                            start = i + 1;
-                        } else {
-                            String[][] last = ms.if_exists(Character.toString(sub.charAt(sub.length() - 1)));
-                            if (!last[0][0].equalsIgnoreCase("DNE")) {
-                                sub = data.substring(start, i);
-                                if (prevLex.equals("\""))
-                                    type = "string";
-                                lexeme = ms.setUserVariable(sub, type);
-                                lexemes.add(lexeme);
-                                lexemes.add(last);
-                                prevLex = ms.getLexeme(lexeme);
-                                start = i + 1;
+            System.out.print("Enter name of output file with .txt extension: ");
+            String output = kb.nextLine();
+            Scanner fileRead = new Scanner(file);
+            try {
+                fw = new FileWriter(output);
+
+                while (fileRead.hasNextLine()) {
+                    lineNum++;
+                    String line = fileRead.nextLine();
+                    String[] parts = line.split(" ");
+                    for (int i = 0; i < parts.length; i++) {
+                        if (parts[i].length() > 0) {
+                            if (ms.if_exists(parts[i])) {
+                                String[] currLex = new String[2];
+                                currLex = ms.returnLexeme();
+                                addData(currLex);
+                            } else {
+                                if (isInt(parts[i])) {
+                                    String[] data = new String[2];
+                                    data = ms.setUserVariable(parts[i], "Integer");
+                                    addData(data);
+                                } else {
+                                    if (parts[i].length() == 1) {
+                                        String[] data = new String[2];
+                                        data = ms.setUserVariable(parts[i], "Variable");
+                                        addData(data);
+                                    } else {
+                                        String part = parts[i];
+                                        int start = 0;
+                                        char first = part.charAt(0);
+                                        String sub = Character.toString(first);
+                                        for (int j = 0; j < part.length(); j++) {
+                                            sub = part.substring(start, (j + 1));
+                                            if (ms.if_exists(sub)) {
+                                                String[] data = new String[2];
+                                                data = ms.returnLexeme();
+                                                addData(data);
+                                                start = j + 1;
+                                            } else {
+                                                String last = Character.toString(sub.charAt(sub.length() - 1));
+                                                if (ms.if_exists(last)) {
+                                                    String newSub = sub.substring(0, sub.length() - 1);
+                                                    if (isInt(newSub)) {
+                                                        newInt = new String[2];
+                                                        newInt = ms.setUserVariable(newSub, "Integer");
+                                                        addData(newInt);
+                                                    } else {
+                                                        l = new String[2];
+                                                        l = ms.setUserVariable(newSub, "Variable");
+                                                        addData(l);
+                                                    }
+                                                    l = new String[2];
+                                                    l = ms.returnLexeme();
+                                                    addData(l);
+                                                    start = j + 1;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
                             }
-                        }
-                    } else {
-                        if (!lexeme[0][0].equalsIgnoreCase("DNE")) {
-                            lexemes.add(lexeme);
-                            prevLex = ms.getLexeme(lexeme);
-                            start = i + 1;
                         }
                     }
                 }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
 
             fileRead.close();
@@ -62,30 +95,34 @@ public class Demo {
             e.printStackTrace();
         }
 
-        printArrayList(ms, lexemes);
-
-        kb.close();
-    }
-
-    public static void printArrayList(MyScanner ms, ArrayList<String[][]> arrList) {
-        Scanner kb = new Scanner(System.in);
-        System.out.print("Enter name of output file with .txt extension: ");
-        String output = kb.nextLine();
+        // printArrayList(ms, lexemes);
 
         try {
-            FileWriter fw = new FileWriter(output);
-
-            for (int i = 0; i < arrList.size(); i++) {
-                String[][] lex = arrList.get(i);
-                String type = lex[0][0];
-                String out = "Lexeme: " + ms.getLexeme(lex) + "\tToken: " + type + "\n";
-                System.out.print(out);
-                fw.write(out);
-            }
             fw.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
         kb.close();
+    }
+
+    public static boolean isInt(String s) {
+        try {
+            Integer.parseInt(s);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
+    public static void addData(String[] data) {
+        try {
+            String lex = data[0];
+            String type = data[1];
+            String out = "Line Number: " + lineNum + "\tLexeme: " + lex + "\tToken: " + type + "\n";
+            System.out.print(out);
+            fw.write(out);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
