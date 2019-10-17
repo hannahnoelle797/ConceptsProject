@@ -9,7 +9,7 @@ public class MyScanner {
     // private String[] operators = { "+", "-", "*", "/", "=" };
     // private String[] comparison = { "<", ">", "<=", ">=", "==", "!=" };
     private ArrayList<String> lexemes = new ArrayList<>(Arrays.asList("do", "else", "elseif", "end", "false", "for",
-            "function", "if", "print", "return", "true", "while", "(", ")", "{", "}", "[", "]", "\"", "+", "-", "*",
+            "function", "if", "print", "return", "true", "while", "(", ")", "{", "}", "[", "]", "\\", "+", "-", "*",
             "/", "%", "=", "<", ">", "<=", ">=", "==", "!=", "^", ":"));
     private ArrayList<String> tokens = new ArrayList<>(
             Arrays.asList("do_statement", "else_statement", "else_if_statement", "end_statement", "boolean_false",

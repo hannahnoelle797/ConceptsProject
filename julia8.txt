@@ -1,6 +1,6 @@
 x = 7
 if x % 2 == 0
-    print("x is even")
+    print(7+1)
 else
-    print("x is odd")
+    print(7)
 end
