@@ -10,6 +10,7 @@ public class Demo {
         Scanner kb = new Scanner(System.in);
 
         String[][] lexeme;
+        String type = "user variable";
         ArrayList<String[][]> lexemes = new ArrayList<>();
 
         MyScanner ms = new MyScanner();
@@ -23,26 +24,33 @@ public class Demo {
             while (fileRead.hasNextLine()) {
                 String data = fileRead.nextLine();
                 int start = 0;
+                String sub = "", prevLex = "";
                 for (int i = 0; i < data.length(); i++) {
-                    String sub = data.substring(start, (i + 1));
+                    System.out.println("Previous Lexeme: " + prevLex);
+                    sub = data.substring(start, (i + 1));
                     lexeme = ms.if_exists(sub);
                     if (sub.length() > 1) {
                         if (!lexeme[0][0].equalsIgnoreCase("DNE")) {
                             lexemes.add(lexeme);
+                            prevLex = ms.getLexeme(lexeme);
                             start = i + 1;
                         } else {
                             String[][] last = ms.if_exists(Character.toString(sub.charAt(sub.length() - 1)));
                             if (!last[0][0].equalsIgnoreCase("DNE")) {
                                 sub = data.substring(start, i);
-                                lexeme = ms.setUserVariable(sub);
+                                if (prevLex.equals("\""))
+                                    type = "string";
+                                lexeme = ms.setUserVariable(sub, type);
                                 lexemes.add(lexeme);
                                 lexemes.add(last);
+                                prevLex = ms.getLexeme(lexeme);
                                 start = i + 1;
                             }
                         }
                     } else {
                         if (!lexeme[0][0].equalsIgnoreCase("DNE")) {
                             lexemes.add(lexeme);
+                            prevLex = ms.getLexeme(lexeme);
                             start = i + 1;
                         }
                     }
@@ -61,7 +69,7 @@ public class Demo {
 
     public static void printArrayList(MyScanner ms, ArrayList<String[][]> arrList) {
         Scanner kb = new Scanner(System.in);
-        System.out.print("Enter name of output file with .txt extension:");
+        System.out.print("Enter name of output file with .txt extension: ");
         String output = kb.nextLine();
 
         try {
@@ -69,10 +77,8 @@ public class Demo {
 
             for (int i = 0; i < arrList.size(); i++) {
                 String[][] lex = arrList.get(i);
-                int idx1 = Integer.parseInt(lex[1][0]);
-                int idx2 = Integer.parseInt(lex[1][1]);
                 String type = lex[0][0];
-                String out = "Lexeme: " + ms.getLexeme(idx1, idx2) + "\tToken: " + type + "\n";
+                String out = "Lexeme: " + ms.getLexeme(lex) + "\tToken: " + type + "\n";
                 System.out.print(out);
                 fw.write(out);
             }

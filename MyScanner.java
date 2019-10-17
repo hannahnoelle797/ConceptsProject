@@ -54,13 +54,13 @@ public class MyScanner {
         return lexeme;
     }
 
-    public String[][] setUserVariable(String var) {
+    public String[][] setUserVariable(String var, String type) {
         if (tokens[4][0].equals(" "))
             tokens[4][0] = var;
         else
             tokens[4] = addVariable(tokens[4], var);
         int idx2 = Arrays.asList(tokens[4]).indexOf(var);
-        String[][] lexeme = { { "user variable" }, { "4", Integer.toString(idx2) } };
+        String[][] lexeme = { { type }, { "4", Integer.toString(idx2) } };
         return lexeme;
     }
 
@@ -73,7 +73,9 @@ public class MyScanner {
         return newArr;
     }
 
-    public String getLexeme(int index1, int index2) {
+    public String getLexeme(String[][] lex) {
+        int index1 = Integer.parseInt(lex[1][0]);
+        int index2 = Integer.parseInt(lex[1][1]);
         return tokens[index1][index2];
     }
 }
