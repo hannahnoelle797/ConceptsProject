@@ -1,9 +1,9 @@
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.io.FileWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class MyScanner {
@@ -59,12 +59,12 @@ public class MyScanner {
                         } else {
                             if (isInt(parts[i])) {
                                 String[] data = new String[2];
-                                data = setUserVariable(parts[i], "Integer");
+                                data = setUserVariable(parts[i], "integer_literal");
                                 addData(data);
                             } else {
                                 if (parts[i].length() == 1) {
                                     String[] data = new String[2];
-                                    data = setUserVariable(parts[i], "Variable");
+                                    data = setUserVariable(parts[i], "id");
                                     addData(data);
                                 } else {
                                     String part = parts[i];
@@ -84,11 +84,11 @@ public class MyScanner {
                                                 String newSub = sub.substring(0, sub.length() - 1);
                                                 if (isInt(newSub)) {
                                                     newInt = new String[2];
-                                                    newInt = setUserVariable(newSub, "Integer");
+                                                    newInt = setUserVariable(newSub, "integer_literal");
                                                     addData(newInt);
                                                 } else {
                                                     l = new String[2];
-                                                    l = setUserVariable(newSub, "Variable");
+                                                    l = setUserVariable(newSub, "id");
                                                     addData(l);
                                                 }
                                                 l = new String[2];
