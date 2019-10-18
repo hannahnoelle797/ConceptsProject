@@ -1,12 +1,12 @@
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.io.FileWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
-public class MyScanner {
+public class ScannerC {
 
     // private String[] reserved_words = { "do", "else", "elseif", "end", "false",
     // "for", "function", "if", "print", "return","true","while"};
@@ -33,7 +33,7 @@ public class MyScanner {
 
     String[] lexeme = { "DNE", "DNE" };
 
-    public MyScanner(String input, String output) {
+    public ScannerC(String input, String output) {
         input_file = input;
         output_file = output;
     }
