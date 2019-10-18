@@ -1,7 +1,7 @@
 print(x)
 
-x = 7
-print(x)
+y = 7
+print(y)
 
 j = 5 + 10
 print(j)
@@ -14,21 +14,18 @@ print(c)
 m = 26.2
 print(m * 1.61)
 
-x = 5
-if x > 0
-    print(x)
+z = 5
+if z > 0
+    print(z)
 end
-
-n = 10
 
 while n > 0
     print(n)
     n = n - 1
 end
+print(n)
 
-x = 7
-if x % 2 == 0
-    print(7+1)
-else
-    print(7)
+function r()
+    q = 7
+    print(q)
 end

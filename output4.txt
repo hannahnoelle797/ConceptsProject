@@ -1,0 +1,15 @@
+Line Number: 1	Lexeme: a	Token: id
+Line Number: 1	Lexeme: =	Token: eq_operator
+Line Number: 1	Lexeme: 5	Token: integer_literal
+Line Number: 2	Lexeme: b	Token: id
+Line Number: 2	Lexeme: =	Token: eq_operator
+Line Number: 2	Lexeme: 9	Token: integer_literal
+Line Number: 3	Lexeme: c	Token: id
+Line Number: 3	Lexeme: =	Token: eq_operator
+Line Number: 3	Lexeme: a	Token: id
+Line Number: 3	Lexeme: +	Token: add_operator
+Line Number: 3	Lexeme: b	Token: id
+Line Number: 4	Lexeme: print	Token: print_statement
+Line Number: 4	Lexeme: (	Token: parenthesis_open
+Line Number: 4	Lexeme: c	Token: id
+Line Number: 4	Lexeme: )	Token: parenthesis_closed
