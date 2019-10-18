@@ -4,3 +4,8 @@ if x % 2 == 0
 else
     print(7)
 end
+
+function a()
+    a = 7
+    print(a)
+end
