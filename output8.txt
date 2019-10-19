@@ -1,13 +1,11 @@
 Line Number: 1	Lexeme: function	Token: function_statment
-Line Number: 1	Lexeme: r	Token: id
+Line Number: 1	Lexeme: p	Token: id
 Line Number: 1	Lexeme: (	Token: parenthesis_open
 Line Number: 1	Lexeme: )	Token: parenthesis_closed
 Line Number: 2	Lexeme: q	Token: id
 Line Number: 2	Lexeme: =	Token: eq_operator
 Line Number: 2	Lexeme: 7	Token: integer_literal
-Line Number: 3	Lexeme: p	Token: id
-Line Number: 3	Lexeme: r	Token: id
-Line Number: 3	Lexeme: int	Token: id
+Line Number: 3	Lexeme: print	Token: print_statement
 Line Number: 3	Lexeme: (	Token: parenthesis_open
 Line Number: 3	Lexeme: q	Token: id
 Line Number: 3	Lexeme: )	Token: parenthesis_closed

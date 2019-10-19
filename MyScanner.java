@@ -31,6 +31,8 @@ public class MyScanner {
                     "mul_operator", "div_operator", "mod_operator", "eq_operator", "lt_operator", "gt_operator",
                     "le_operator", "ge_operator", "eqal_operator", "ne_operator", "exp_operator", "iter_operator"));
 
+    private ArrayList<String> userVariables = new ArrayList<>();
+
     String[] lexeme = { "DNE", "DNE" };
 
     public MyScanner(String input, String output) {
@@ -123,6 +125,10 @@ public class MyScanner {
             lexeme[0] = lexemes.get(index);
             lexeme[1] = tokens.get(index);
             return true;
+        } else if (userVariables.contains(lex)) {
+            int index = userVariables.indexOf(lex);
+            lexeme[0] = userVariables.get(index);
+            lexeme[1] = "id";
         }
         return false;
 
@@ -138,8 +144,8 @@ public class MyScanner {
     }
 
     public String[] setUserVariable(String lex, String tok) {
-        lexemes.add(lex);
-        tokens.add(tok);
+        if (tok.equals("id"))
+            userVariables.add(lex);
         String[] lexeme = { lex, tok };
         return lexeme;
     }
