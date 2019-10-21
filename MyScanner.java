@@ -138,8 +138,6 @@ public class MyScanner {
     }
 
     public String[] setUserVariable(String lex, String tok) {
-        lexemes.add(lex);
-        tokens.add(tok);
         String[] lexeme = { lex, tok };
         return lexeme;
     }
