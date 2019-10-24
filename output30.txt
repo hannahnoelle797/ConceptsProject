@@ -1,0 +1,12 @@
+Line Number: 1	Lexeme: j	Identifier: 8106	Token: id
+Line Number: 1	Lexeme: =	Identifier: 5024	Token: eq_operator
+Line Number: 1	Lexeme: 5	Identifier: 6005	Token: integer_literal
+Line Number: 1	Lexeme: +	Identifier: 5019	Token: add_operator
+Line Number: 1	Lexeme: 10	Identifier: 6010	Token: integer_literal
+Line Number: 2	Lexeme: print	Identifier: 5008	Token: print_statement
+Line Number: 2	Lexeme: (	Identifier: 5012	Token: parenthesis_open
+Line Number: 2	Lexeme: j	Identifier: 8106	Token: id
+Line Number: 2	Lexeme: )	Identifier: 5013	Token: parenthesis_closed
+Line Number: 4	Lexeme: J	Identifier: 8074	Token: id
+Line Number: 4	Lexeme: =	Identifier: 5024	Token: eq_operator
+Line Number: 4	Lexeme: 7	Identifier: 6007	Token: integer_literal
