@@ -31,7 +31,16 @@ public class MyScanner {
                     "mul_operator", "div_operator", "mod_operator", "eq_operator", "lt_operator", "gt_operator",
                     "le_operator", "ge_operator", "eqal_operator", "ne_operator", "exp_operator", "iter_operator"));
 
-    String[] lexeme = { "DNE", "DNE" };
+    private ArrayList<String> identifier = new ArrayList<>(
+            Arrays.asList("5000", "5001", "5002", "5003", "5004", "5005", "5006", "5007", "5008", "5009", "5010",
+                    "5011", "5012", "5013", "5014", "5015", "5016", "5017", "5018", "5019", "5020", "5021", "5022",
+                    "5023", "5024", "5025", "5026", "5027", "5028", "5029", "5030", "5031", "5032"));
+
+    private ArrayList<String[]> userVariables = new ArrayList<>();
+
+    String[] lexeme = { "DNE", "DNE", "DNE" };
+    int intCount = 6000;
+    int idCount = 8000;
 
     public MyScanner(String input, String output) {
         input_file = input;
@@ -59,12 +68,12 @@ public class MyScanner {
                         } else {
                             if (isInt(parts[i])) {
                                 String[] data = new String[2];
-                                data = setUserVariable(parts[i], "integer_literal");
+                                data = setUserVariable(parts[i], "integer_literal", (intCount + toInt(parts[i])));
                                 addData(data);
                             } else {
                                 if (parts[i].length() == 1) {
                                     String[] data = new String[2];
-                                    data = setUserVariable(parts[i], "id");
+                                    data = setUserVariable(parts[i], "id", (idCount + stringToInt(parts[i])));
                                     addData(data);
                                 } else {
                                     String part = parts[i];
@@ -84,11 +93,12 @@ public class MyScanner {
                                                 String newSub = sub.substring(0, sub.length() - 1);
                                                 if (isInt(newSub)) {
                                                     newInt = new String[2];
-                                                    newInt = setUserVariable(newSub, "integer_literal");
+                                                    newInt = setUserVariable(newSub, "integer_literal",
+                                                            (intCount + toInt(newSub)));
                                                     addData(newInt);
                                                 } else {
                                                     l = new String[2];
-                                                    l = setUserVariable(newSub, "id");
+                                                    l = setUserVariable(newSub, "id", (idCount + stringToInt(newSub)));
                                                     addData(l);
                                                 }
                                                 l = new String[2];
@@ -122,6 +132,7 @@ public class MyScanner {
             int index = lexemes.indexOf(lex);
             lexeme[0] = lexemes.get(index);
             lexeme[1] = tokens.get(index);
+            lexeme[2] = identifier.get(index);
             return true;
         }
         return false;
@@ -135,10 +146,22 @@ public class MyScanner {
     private void resetLexeme() {
         lexeme[0] = "DNE";
         lexeme[1] = "DNE";
+        lexeme[2] = "DNE";
     }
 
-    public String[] setUserVariable(String lex, String tok) {
-        String[] lexeme = { lex, tok };
+    private int stringToInt(String s) {
+        Character c = s.charAt(0);
+        int i = (int) c;
+        return i;
+    }
+
+    private int toInt(String s) {
+        return Integer.parseInt(s);
+    }
+
+    public String[] setUserVariable(String lex, String tok, int id) {
+
+        String[] lexeme = { lex, tok, Integer.toString(id) };
         return lexeme;
     }
 
@@ -155,7 +178,9 @@ public class MyScanner {
         try {
             String lex = data[0];
             String type = data[1];
-            String out = "Line Number: " + lineNum + "\tLexeme: " + lex + "\tToken: " + type + "\n";
+            String id = data[2];
+            String out = "Line Number: " + lineNum + "\tLexeme: " + lex + "\tIdentifier: " + id + "\tToken: " + type
+                    + "\n";
             System.out.print(out);
             fw.write(out);
         } catch (IOException e) {
