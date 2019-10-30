@@ -36,8 +36,6 @@ public class MyScanner {
                     "5011", "5012", "5013", "5014", "5015", "5016", "5017", "5018", "5019", "5020", "5021", "5022",
                     "5023", "5024", "5025", "5026", "5027", "5028", "5029", "5030", "5031", "5032"));
 
-    private ArrayList<String[]> userVariables = new ArrayList<>();
-
     String[] lexeme = { "DNE", "DNE", "DNE" };
     int intCount = 6000;
     int idCount = 8000;
