@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Demo",
+            "request": "launch",
+            "mainClass": "Demo",
+            "projectName": "ConceptsProject_2dc2b230"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - MyScanner3",
             "request": "launch",
             "mainClass": "MyScanner3",

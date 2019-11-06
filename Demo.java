@@ -7,7 +7,7 @@ public class Demo {
         String tryagain = "yes";
 
         do {
-            System.out.print("Enter name of Julia file with .txt extension: ");
+            System.out.print("Enter name of Julia file with .txt or .jl extension: ");
             String filename = kb.nextLine();
 
             System.out.print("Enter name of output file with .txt extension: ");
