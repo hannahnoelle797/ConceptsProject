@@ -49,9 +49,11 @@ public class MyScanner {
             fw = new FileWriter(output_file);
 
             lineNum = 0;
+            String fullLine = "";
 
             while (fileRead.hasNextLine()) {
                 lineNum++;
+                fullLine = "Full Line " + lineNum + "~ ";
                 String line = fileRead.nextLine();
                 String[] parts = line.split(" ");
                 for (int i = 0; i < parts.length; i++) {
@@ -60,16 +62,19 @@ public class MyScanner {
                             String[] currLex = new String[2];
                             currLex = returnLexeme();
                             addData(currLex);
+                            fullLine += currLex[1] + " ";
                         } else {
                             if (isInt(parts[i])) {
                                 String[] data = new String[2];
                                 data = setUserVariable(parts[i], "<integer_literal>", (intCount + toInt(parts[i])));
                                 addData(data);
+                                fullLine += data[1] + " ";
                             } else {
                                 if (parts[i].length() == 1) {
                                     String[] data = new String[2];
                                     data = setUserVariable(parts[i], "<id>", (idCount + stringToInt(parts[i])));
                                     addData(data);
+                                    fullLine += data[1] + " ";
                                 } else {
                                     String part = parts[i];
                                     int start = 0;
@@ -81,6 +86,7 @@ public class MyScanner {
                                             String[] data = new String[2];
                                             data = returnLexeme();
                                             addData(data);
+                                            fullLine += data[1] + " ";
                                             start = j + 1;
                                         } else {
                                             String last = Character.toString(sub.charAt(sub.length() - 1));
@@ -91,15 +97,18 @@ public class MyScanner {
                                                     newInt = setUserVariable(newSub, "<integer_literal>",
                                                             (intCount + toInt(newSub)));
                                                     addData(newInt);
+                                                    fullLine += newInt[1] + " ";
                                                 } else {
                                                     l = new String[2];
                                                     l = setUserVariable(newSub, "<id>",
                                                             (idCount + stringToInt(newSub)));
                                                     addData(l);
+                                                    fullLine += l[1] + " ";
                                                 }
                                                 l = new String[2];
                                                 l = returnLexeme();
                                                 addData(l);
+                                                fullLine += l[1] + " ";
                                                 start = j + 1;
                                             }
                                         }
@@ -109,6 +118,8 @@ public class MyScanner {
                         }
                     }
                 }
+                if (!fullLine.equalsIgnoreCase("Full Line " + lineNum + ": "))
+                    fw.write(fullLine + "\n");
             }
             fw.close();
             fileRead.close();

@@ -2,3 +2,4 @@ Line Number: 1 Lexeme: print Identifier: 5006 Token: <print>
 Line Number: 1 Lexeme: ( Identifier: 5009 Token: <(>
 Line Number: 1 Lexeme: x Identifier: 8120 Token: <id>
 Line Number: 1 Lexeme: ) Identifier: 5010 Token: <)>
+Full Line 1: <print> <(> <id> <)> 
