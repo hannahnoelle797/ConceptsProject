@@ -26,7 +26,7 @@ public class if_statement {
             System.out.println("<if_statement> -> if <boolean_expression> <block> else <block> end");
             bool.toGrammar();
             ifBody.toGrammar();
-            elseBody.toGrammer();
+            elseBody.toGrammar();
         } else {
             System.out.println("<if_statement> -> if <boolean_expression> <block> end");
             bool.toGrammar();

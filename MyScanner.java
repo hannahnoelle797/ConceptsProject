@@ -14,8 +14,8 @@ public class MyScanner {
     // private String[] operators = { "+", "-", "*", "/", "=" };
     // private String[] comparison = { "<", ">", "<=", ">=", "==", "!=" };
 
-    private String input_file, output_file;
-    private FileWriter fw;
+    private String input_file, output_file, full_lines_file;
+    private FileWriter fw, full_fw;
     private int lineNum = 0;
     private String[] l;
     private String[] newInt;
@@ -40,6 +40,7 @@ public class MyScanner {
     public MyScanner(String input, String output) {
         input_file = input;
         output_file = output;
+        full_lines_file = "full_lines_" + output;
     }
 
     public void Scan() {
@@ -47,6 +48,7 @@ public class MyScanner {
             File file = new File(input_file);
             Scanner fileRead = new Scanner(file);
             fw = new FileWriter(output_file);
+            full_fw = new FileWriter(full_lines_file);
 
             lineNum = 0;
             String fullLine = "";
@@ -118,10 +120,13 @@ public class MyScanner {
                         }
                     }
                 }
-                if (!fullLine.equalsIgnoreCase("Full Line " + lineNum + ": "))
+                if (!fullLine.equalsIgnoreCase("Full Line " + lineNum + ": ")) {
                     fw.write(fullLine + "\n");
+                    full_fw.write(fullLine + "\n");
+                }
             }
             fw.close();
+            full_fw.close();
             fileRead.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
