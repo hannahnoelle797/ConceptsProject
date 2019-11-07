@@ -1,5 +1,7 @@
 public class arithmetic_op {
     String[] operators = { "+", "-", "*", "/", "%", "^", "\\" };
+    String[] opTokens = { "add_operator", "sub_operator", "mul_operator", "div_operator", "mod_operator",
+            "exp_operator", "rev_div_operator" };
     int indexOfCurrOp = 0;
 
     public arithmetic_op(String op) {
@@ -33,5 +35,10 @@ public class arithmetic_op {
 
     public String getArithmeticOp() {
         return operators[indexOfCurrOp];
+    }
+
+    public void toGrammar() {
+        System.out.print("<arithmetic_op> -> " + opTokens[indexOfCurrOp]);
+
     }
 }

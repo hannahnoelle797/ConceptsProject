@@ -45,4 +45,23 @@ public class arithmetic_ex {
         else
             return null;
     }
+
+    public void toGrammar() {
+        System.out.print("<arithmetic_expression> -> ");
+        switch (type) {
+        case 0:
+            System.out.println("<id>");
+            break;
+        case 1:
+            System.out.println("<literal_integer>");
+            break;
+        case 2:
+            System.out.println("<binary_expression>");
+            binary.toGrammar();
+            break;
+        default:
+            System.out.println("Failed to get grammar");
+        }
+
+    }
 }

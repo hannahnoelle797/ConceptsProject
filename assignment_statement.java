@@ -7,4 +7,9 @@ public class assignment_statement {
         id = stringSplit[0];
         this.expression = new arithmetic_ex(stringSplit[1]);
     }
+
+    public void toGrammar() {
+        System.out.print("<assignment_statement> -> id <assignment_operator> <arithmetic_expression>");
+        expression.toGrammar();
+    }
 }

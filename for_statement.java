@@ -6,4 +6,10 @@ public class for_statement {
     public for_statement(String fullLoop) {
 
     }
+
+    public void toGrammar() {
+        System.out.println("<for_statement> -> for id = <iter> <block> end");
+        iterator.toGrammar();
+        statement.toGrammar();
+    }
 }

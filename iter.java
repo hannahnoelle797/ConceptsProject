@@ -12,4 +12,10 @@ public class iter {
         }
     }
 
+    public void toGrammar() {
+        System.out.println("<iter> -> <arithmetic_expression> : <arithmetic_expression>");
+        left.toGrammar();
+        right.toGrammar();
+    }
+
 }

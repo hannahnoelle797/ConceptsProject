@@ -34,4 +34,11 @@ public class boolean_ex {
             right = new arithmetic_ex(expressSplit[2]);
         }
     }
+
+    public void toGrammar() {
+        System.out.print("<boolean_expression> -> <arithmetic_expression> <relative_op> <arithmetic_expression>");
+        left.toGrammar();
+        operator.toGrammar();
+        right.toGrammar();
+    }
 }

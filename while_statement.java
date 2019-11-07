@@ -10,4 +10,10 @@ public class while_statement {
         this.boolEx = boolEx;
         this.body = body;
     }
+
+    public void toGrammar() {
+        System.out.println("<while_statement> -> while <boolean_expression> <block> end");
+        boolEx.toGrammar();
+        body.toGrammar();
+    }
 }

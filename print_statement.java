@@ -8,4 +8,9 @@ public class print_statement {
     public void print() {
         System.out.println(expression);
     }
+
+    public void toGrammar() {
+        System.out.println("<print_statement> -> print ( <arithmetic_expression> )");
+        expression.toGrammar();
+    }
 }
