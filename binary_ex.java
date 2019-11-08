@@ -5,25 +5,26 @@ public class binary_ex {
     String fullExpression;
 
     public binary_ex(String expression) {
-        fullExpression = expression;
-        if (expression.contains("<="))
-            splitExpression(expression, "<=");
-        else if (expression.contains("<"))
-            splitExpression(expression, "<");
-        else if (expression.contains(">="))
-            splitExpression(expression, ">=");
-        else if (expression.contains(">"))
-            splitExpression(expression, ">");
-        else if (expression.contains("=="))
-            splitExpression(expression, "==");
-        else if (expression.contains("!="))
-            splitExpression(expression, "!=");
+        fullExpression = expression.trim();
+        if (expression.contains("*"))
+            splitExpression(expression, "*");
+        else if (expression.contains("/"))
+            splitExpression(expression, "/");
+        else if (expression.contains("+"))
+            splitExpression(expression, "+");
+        else if (expression.contains("-"))
+            splitExpression(expression, "-");
+        else if (expression.contains("%"))
+            splitExpression(expression, "%");
+        else if (expression.contains("\\"))
+            splitExpression(expression, "\\");
         else
             System.out.println("No operator found. Invalid expression");
     }
 
     public void splitExpression(String expression, String op) {
         operator = new arithmetic_op(op);
+        expression = expression.trim();
         int index = expression.indexOf(op);
         if (index != 0) { // format is 2 + 5
             left = new arithmetic_ex((expression.substring(0, index)).trim());
@@ -31,9 +32,7 @@ public class binary_ex {
                 index++;
             right = new arithmetic_ex((expression.substring(index + 1)).trim());
         } else { // format is + 2 5
-            String[] expressSplit = expression.split(" ");
-            left = new arithmetic_ex(expressSplit[1]);
-            right = new arithmetic_ex(expressSplit[2]);
+
         }
     }
 

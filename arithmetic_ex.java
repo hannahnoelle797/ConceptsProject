@@ -6,7 +6,7 @@ public class arithmetic_ex {
     binary_ex binary;
     int type; // 0 for id, 1 for int, 2 for binary expression
 
-    public arithmetic_ex(String expression) {
+    public arithmetic_ex(String expression) { // 5 + 10
         expression = expression.trim();
         try {
             literal_integer = Integer.parseInt(expression);

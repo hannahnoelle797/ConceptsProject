@@ -19,9 +19,12 @@ public class if_statement {
             i++;
         } while (!expression.get(i).equalsIgnoreCase("else"));
         do {
-            if (!expression.get(i).contains("else"))
+            if (!expression.get(i).contains("else")) {
                 elseBody.add(expression.get(i));
+            }
             i++;
+            if (i == expression.size())
+                break;
         } while (!expression.get(i).equalsIgnoreCase("end"));
         bool = new boolean_ex(ifBool);
         this.ifBody = new block(ifBody);

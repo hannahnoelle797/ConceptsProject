@@ -54,18 +54,23 @@ public class statement {
     public void toGrammar() {
         switch (type) {
         case 0:
+            System.out.println("<statement> -> <if_statement>");
             ifStmt.toGrammar();
             break;
         case 1:
+            System.out.println("<statement> -> <assignment_statement>");
             assignStmt.toGrammar();
             break;
         case 2:
+            System.out.println("<statement> -> <while_statement>");
             whileStmt.toGrammar();
             break;
         case 3:
+            System.out.println("<statement> -> <print_statement>");
             printStmt.toGrammar();
             break;
         case 4:
+            System.out.println("<statement> -> <for_statement>");
             forStmt.toGrammar();
             break;
         default:

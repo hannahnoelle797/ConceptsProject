@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class block {
     private ArrayList<statement> blockStatements = new ArrayList<>();
-    private ArrayList<String> loopStatements = new ArrayList<>();
+    private ArrayList<int[]> blockStartsEnds = new ArrayList<>();
 
     public block() {
 
@@ -19,34 +19,33 @@ public class block {
     public void findNextStatement(ArrayList<String> lines) {
         statement s = new statement();
         int size = lines.size(), i = 0;
+        for (int k = 0; k < lines.size(); k++) {
+            if (checkForCondition(lines.get(k))) {
+                int[] arr = { k, -1 };
+                blockStartsEnds.add(arr);
+            }
+            if (lines.get(k).contains("end")) {
+                for (int q = blockStartsEnds.size() - 1; q >= 0; q--) {
+                    if (blockStartsEnds.get(q)[1] == -1)
+                        blockStartsEnds.get(q)[1] = k;
+                }
+            }
+        }
         while (i < size) {
-            System.out.println(lines.get(i));
             if (lines.get(i).length() > 0) {
                 if (lines.get(i).contains("if")) {
-                    ArrayList<String> ifBody = new ArrayList<>();
-                    do {
-                        ifBody.add(lines.get(i));
-                        i++;
-                    } while (!lines.get(i).equalsIgnoreCase("end"));
-                    i++;
+                    ArrayList<String> ifBody = getSubList(lines, i);
+                    i = getEnd(i);
                     s = new statement(0, ifBody);
                     blockStatements.add(s);
                 } else if (lines.get(i).contains("for")) {
-                    ArrayList<String> forBody = new ArrayList<>();
-                    do {
-                        forBody.add(lines.get(i));
-                        i++;
-                    } while (!lines.get(i).equalsIgnoreCase("end"));
-                    i++;
+                    ArrayList<String> forBody = getSubList(lines, i);
+                    i = getEnd(i);
                     s = new statement(4, forBody);
                     blockStatements.add(s);
                 } else if (lines.get(i).contains("while")) {
-                    ArrayList<String> whileBody = new ArrayList<>();
-                    do {
-                        whileBody.add(lines.get(i));
-                        i++;
-                    } while (!lines.get(i).equalsIgnoreCase("end"));
-                    i++;
+                    ArrayList<String> whileBody = getSubList(lines, i);
+                    i = getEnd(i);
                     s = new statement(2, whileBody);
                     blockStatements.add(s);
                 } else if (lines.get(i).contains("print")) {
@@ -64,7 +63,32 @@ public class block {
         // return s;
     }
 
+    public ArrayList<String> getSubList(ArrayList<String> arr, int start) {
+        ArrayList<String> sublist = new ArrayList<>();
+        int end = getEnd(start);
+        for (int i = start; i < end; i++) {
+            sublist.add(arr.get(i));
+        }
+        return sublist;
+    }
+
+    public int getEnd(int start) {
+        int end = 0;
+        for (int[] k : blockStartsEnds) {
+            if (k[0] == start)
+                end = k[1] + 1;
+        }
+        return end;
+    }
+
+    public boolean checkForCondition(String s) {
+        if (s.contains("if") || s.contains("for") || s.contains("while"))
+            return true;
+        return false;
+    }
+
     public void toGrammar() {
+        System.out.println("<block> -> <statement>");
         for (statement s : blockStatements) {
             s.toGrammar();
         }

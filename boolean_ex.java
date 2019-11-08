@@ -36,7 +36,7 @@ public class boolean_ex {
     }
 
     public void toGrammar() {
-        System.out.print("<boolean_expression> -> <arithmetic_expression> <relative_op> <arithmetic_expression>");
+        System.out.println("<boolean_expression> -> <arithmetic_expression> <relative_op> <arithmetic_expression>");
         left.toGrammar();
         operator.toGrammar();
         right.toGrammar();

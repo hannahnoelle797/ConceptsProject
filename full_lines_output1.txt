@@ -1,2 +1,0 @@
-Full Line 1~ <print> <(> <id> <)> 
-Full Line 2~ 

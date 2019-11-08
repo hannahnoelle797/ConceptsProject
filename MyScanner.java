@@ -14,7 +14,7 @@ public class MyScanner {
     // private String[] operators = { "+", "-", "*", "/", "=" };
     // private String[] comparison = { "<", ">", "<=", ">=", "==", "!=" };
 
-    private String input_file, output_file, full_lines_file;
+    private String input_file, output_file;
     private FileWriter fw, full_fw;
     private int lineNum = 0;
     private String[] l;
@@ -40,7 +40,6 @@ public class MyScanner {
     public MyScanner(String input, String output) {
         input_file = input;
         output_file = output;
-        full_lines_file = "full_lines_" + output;
     }
 
     public void Scan() {
@@ -48,14 +47,11 @@ public class MyScanner {
             File file = new File(input_file);
             Scanner fileRead = new Scanner(file);
             fw = new FileWriter(output_file);
-            full_fw = new FileWriter(full_lines_file);
 
             lineNum = 0;
-            String fullLine = "";
 
             while (fileRead.hasNextLine()) {
                 lineNum++;
-                fullLine = "Full Line " + lineNum + "~ ";
                 String line = fileRead.nextLine();
                 String[] parts = line.split(" ");
                 for (int i = 0; i < parts.length; i++) {
@@ -64,19 +60,16 @@ public class MyScanner {
                             String[] currLex = new String[2];
                             currLex = returnLexeme();
                             addData(currLex);
-                            fullLine += currLex[1] + " ";
                         } else {
                             if (isInt(parts[i])) {
                                 String[] data = new String[2];
                                 data = setUserVariable(parts[i], "<integer_literal>", (intCount + toInt(parts[i])));
                                 addData(data);
-                                fullLine += data[1] + " ";
                             } else {
                                 if (parts[i].length() == 1) {
                                     String[] data = new String[2];
                                     data = setUserVariable(parts[i], "<id>", (idCount + stringToInt(parts[i])));
                                     addData(data);
-                                    fullLine += data[1] + " ";
                                 } else {
                                     String part = parts[i];
                                     int start = 0;
@@ -88,7 +81,6 @@ public class MyScanner {
                                             String[] data = new String[2];
                                             data = returnLexeme();
                                             addData(data);
-                                            fullLine += data[1] + " ";
                                             start = j + 1;
                                         } else {
                                             String last = Character.toString(sub.charAt(sub.length() - 1));
@@ -99,18 +91,15 @@ public class MyScanner {
                                                     newInt = setUserVariable(newSub, "<integer_literal>",
                                                             (intCount + toInt(newSub)));
                                                     addData(newInt);
-                                                    fullLine += newInt[1] + " ";
                                                 } else {
                                                     l = new String[2];
                                                     l = setUserVariable(newSub, "<id>",
                                                             (idCount + stringToInt(newSub)));
                                                     addData(l);
-                                                    fullLine += l[1] + " ";
                                                 }
                                                 l = new String[2];
                                                 l = returnLexeme();
                                                 addData(l);
-                                                fullLine += l[1] + " ";
                                                 start = j + 1;
                                             }
                                         }
@@ -120,13 +109,8 @@ public class MyScanner {
                         }
                     }
                 }
-                if (!fullLine.equalsIgnoreCase("Full Line " + lineNum + ": ")) {
-                    fw.write(fullLine + "\n");
-                    full_fw.write(fullLine + "\n");
-                }
             }
             fw.close();
-            full_fw.close();
             fileRead.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -193,7 +177,7 @@ public class MyScanner {
             String id = data[2];
             String out = "Line Number: " + lineNum + " Lexeme: " + lex + " Identifier: " + id + " Token: " + type
                     + "\n";
-            System.out.print(out);
+            // System.out.print(out);
             fw.write(out);
         } catch (IOException e) {
             e.printStackTrace();

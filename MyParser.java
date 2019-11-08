@@ -20,7 +20,7 @@ public class MyParser {
             fileRead = new Scanner(file);
 
             while (fileRead.hasNextLine()) {
-                allLines.add(fileRead.nextLine());
+                allLines.add(fileRead.nextLine().trim());
             }
 
             block fileBlock = new block(allLines);
@@ -28,8 +28,6 @@ public class MyParser {
 
             fileRead.close();
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
             e.printStackTrace();
         } catch (NoSuchElementException e) {
             e.printStackTrace();

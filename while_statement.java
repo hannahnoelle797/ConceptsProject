@@ -8,8 +8,15 @@ public class while_statement {
 
     }
 
-    public while_statement(ArrayList<String> expressions) {
-
+    public while_statement(ArrayList<String> expression) {
+        String boolExpression = expression.get(0).substring(5).trim();
+        boolEx = new boolean_ex(boolExpression);
+        ArrayList<String> whileBody = new ArrayList<>();
+        for (int i = 1; i < expression.size(); i++) {
+            if (!expression.get(i).equalsIgnoreCase("end"))
+                whileBody.add(expression.get(i));
+        }
+        body = new block(whileBody);
     }
 
     public while_statement(boolean_ex boolEx, block body) {

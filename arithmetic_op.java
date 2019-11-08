@@ -38,7 +38,7 @@ public class arithmetic_op {
     }
 
     public void toGrammar() {
-        System.out.print("<arithmetic_op> -> " + opTokens[indexOfCurrOp]);
+        System.out.println("<arithmetic_op> -> " + opTokens[indexOfCurrOp]);
 
     }
 }

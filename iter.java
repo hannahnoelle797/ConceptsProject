@@ -4,9 +4,9 @@ public class iter {
 
     public iter(String expression) {
         if (expression.contains(":")) {
-            String[] expressSplit = expression.split(":");
-            left = new arithmetic_ex(expressSplit[0]);
-            right = new arithmetic_ex(expressSplit[1]);
+            String[] parts = expression.split(":");
+            left = new arithmetic_ex(parts[0]);
+            right = new arithmetic_ex(parts[1]);
         } else {
             System.out.println("Invalid format");
         }
