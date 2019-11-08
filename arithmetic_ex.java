@@ -7,17 +7,26 @@ public class arithmetic_ex {
     int type; // 0 for id, 1 for int, 2 for binary expression
 
     public arithmetic_ex(String expression) {
-        if (expression.length() == 1) {
-            try {
-                literal_integer = Integer.parseInt(expression);
-                type = 1;
-            } catch (InputMismatchException e) {
+        expression = expression.trim();
+        try {
+            literal_integer = Integer.parseInt(expression);
+            type = 1;
+        } catch (InputMismatchException e) {
+            if (expression.length() == 1) {
                 id = expression;
                 type = 0;
+            } else {
+                binary = new binary_ex(expression);
+                type = 2;
             }
-        } else {
-            binary = new binary_ex(expression);
-            type = 2;
+        } catch (NumberFormatException e) {
+            if (expression.length() == 1) {
+                id = expression;
+                type = 0;
+            } else {
+                binary = new binary_ex(expression);
+                type = 2;
+            }
         }
     }
 
@@ -50,10 +59,10 @@ public class arithmetic_ex {
         System.out.print("<arithmetic_expression> -> ");
         switch (type) {
         case 0:
-            System.out.println("<id>");
+            System.out.println("id");
             break;
         case 1:
-            System.out.println("<literal_integer>");
+            System.out.println("literal_integer");
             break;
         case 2:
             System.out.println("<binary_expression>");

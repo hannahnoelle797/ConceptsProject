@@ -17,7 +17,10 @@ public class Demo {
 
             ms.Scan();
 
-            System.out.print("Do you want to scan another file? (Yes/No) ");
+            MyParser mp = new MyParser(filename);
+            mp.Parse();
+
+            System.out.print("Do you want to do another file? (Yes/No) ");
             tryagain = kb.nextLine();
 
         } while (tryagain.equalsIgnoreCase("yes"));

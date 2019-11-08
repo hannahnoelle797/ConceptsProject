@@ -42,7 +42,7 @@ public class binary_ex {
     }
 
     public void toGrammar() {
-        System.out.println("<binary_expression> -> <arithmeitc_expression> <arithmetic_op> <arithmetic_expression");
+        System.out.println("<binary_expression> -> <arithmeitc_expression> <arithmetic_op> <arithmetic_expression>");
         left.toGrammar();
         operator.toGrammar();
         right.toGrammar();

@@ -6,24 +6,25 @@ import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class MyParser {
-    private ArrayList<block> allBlocks = new ArrayList<>();
-    private ArrayList<String[]> userVariables = new ArrayList<>();
-    private boolean keepGoing = true;
-    int lineStart, lineEnd;
+    private ArrayList<String> allLines = new ArrayList<>();
+    private Scanner fileRead;
+    private String filename;
 
     public MyParser(String filename) {
+        this.filename = filename;
+    }
+
+    public void Parse() {
         try {
             File file = new File(filename);
-            Scanner fileRead = new Scanner(file);
+            fileRead = new Scanner(file);
 
-            do {
-                keepGoing = false;
-                lineStart = fileRead.nextInt();
-                String line = fileRead.nextLine();
-                if (line.contains("(")) {
+            while (fileRead.hasNextLine()) {
+                allLines.add(fileRead.nextLine());
+            }
 
-                }
-            } while (keepGoing);
+            block fileBlock = new block(allLines);
+            fileBlock.toGrammar();
 
             fileRead.close();
         } catch (FileNotFoundException e) {
@@ -34,4 +35,5 @@ public class MyParser {
             e.printStackTrace();
         }
     }
+
 }

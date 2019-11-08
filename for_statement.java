@@ -1,9 +1,15 @@
+import java.util.ArrayList;
+
 public class for_statement {
     String id;
     iter iterator;
     block statement;
 
     public for_statement(String fullLoop) {
+
+    }
+
+    public for_statement(ArrayList<String> expressions) {
 
     }
 

@@ -6,12 +6,12 @@ public class boolean_ex {
     public boolean_ex(String expression) {
         if (expression.contains("<="))
             splitExpression(expression, "<=");
-        else if (expression.contains("<"))
-            splitExpression(expression, "<");
         else if (expression.contains(">="))
             splitExpression(expression, ">=");
         else if (expression.contains(">"))
             splitExpression(expression, ">");
+        else if (expression.contains("<"))
+            splitExpression(expression, "<");
         else if (expression.contains("=="))
             splitExpression(expression, "==");
         else if (expression.contains("!="))

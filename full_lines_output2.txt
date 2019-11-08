@@ -1,0 +1,2 @@
+Full Line 1~ <id> <eq_operator> <integer_literal> 
+Full Line 2~ <print> <(> <id> <)> 

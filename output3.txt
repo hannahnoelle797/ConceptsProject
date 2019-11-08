@@ -1,9 +1,16 @@
-Line Number: 1	Lexeme: j	Token: id
-Line Number: 1	Lexeme: =	Token: eq_operator
-Line Number: 1	Lexeme: 5	Token: integer_literal
-Line Number: 1	Lexeme: +	Token: add_operator
-Line Number: 1	Lexeme: 10	Token: integer_literal
-Line Number: 2	Lexeme: print	Token: print_statement
-Line Number: 2	Lexeme: (	Token: parenthesis_open
-Line Number: 2	Lexeme: j	Token: id
-Line Number: 2	Lexeme: )	Token: parenthesis_closed
+Line Number: 1 Lexeme: j Identifier: 8106 Token: <id>
+Line Number: 1 Lexeme: = Identifier: 5016 Token: <eq_operator>
+Line Number: 1 Lexeme: 5 Identifier: 6005 Token: <integer_literal>
+Line Number: 1 Lexeme: + Identifier: 5011 Token: <add_operator>
+Line Number: 1 Lexeme: 10 Identifier: 6010 Token: <integer_literal>
+Full Line 1~ <id> <eq_operator> <integer_literal> <add_operator> <integer_literal> 
+Line Number: 2 Lexeme: print Identifier: 5006 Token: <print>
+Line Number: 2 Lexeme: ( Identifier: 5009 Token: <(>
+Line Number: 2 Lexeme: j Identifier: 8106 Token: <id>
+Line Number: 2 Lexeme: ) Identifier: 5010 Token: <)>
+Full Line 2~ <print> <(> <id> <)> 
+Full Line 3~ 
+Line Number: 4 Lexeme: J Identifier: 8074 Token: <id>
+Line Number: 4 Lexeme: = Identifier: 5016 Token: <eq_operator>
+Line Number: 4 Lexeme: 7 Identifier: 6007 Token: <integer_literal>
+Full Line 4~ <id> <eq_operator> <integer_literal> 

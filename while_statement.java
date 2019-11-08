@@ -1,8 +1,14 @@
+import java.util.ArrayList;
+
 public class while_statement {
     boolean_ex boolEx;
     block body;
 
     public while_statement(String expression) {
+
+    }
+
+    public while_statement(ArrayList<String> expressions) {
 
     }
 
