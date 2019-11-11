@@ -62,6 +62,8 @@ public class block {
                     i++;
                     s = new statement(1, lines.get(i - 1));
                     blockStatements.add(s);
+                } else if (lines.get(i).contains("end")) {
+                    i++;
                 }
             }
         }
