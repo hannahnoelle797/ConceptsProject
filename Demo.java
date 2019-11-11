@@ -13,8 +13,8 @@ public class Demo {
             System.out.print("Enter name of output file with .txt extension: ");
             String output = kb.nextLine();
 
-            MyScanner ms = new MyScanner(filename, output);
-
+            MyScanner ms = new MyScanner(filename, output); 
+            
             ms.Scan();
 
             MyParser mp = new MyParser(filename);
