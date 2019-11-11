@@ -4,6 +4,8 @@ public class block {
     private ArrayList<statement> blockStatements = new ArrayList<>();
     private ArrayList<int[]> blockStartsEnds = new ArrayList<>();
 
+    // private boolean found = false;
+
     public block() {
 
     }
@@ -25,10 +27,14 @@ public class block {
                 blockStartsEnds.add(arr);
             }
             if (lines.get(k).contains("end")) {
-                for (int q = blockStartsEnds.size() - 1; q >= 0; q--) {
-                    if (blockStartsEnds.get(q)[1] == -1)
-                        blockStartsEnds.get(q)[1] = k;
-                }
+                int w = blockStartsEnds.size() - 1;
+                do {
+                    if (blockStartsEnds.get(w)[1] == -1) {
+                        blockStartsEnds.get(w)[1] = k;
+                        break;
+                    }
+                    w--;
+                } while (w >= 0);
             }
         }
         while (i < size) {
