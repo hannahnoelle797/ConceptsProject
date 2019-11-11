@@ -1,4 +1,0 @@
-Line Number: 1	Lexeme: print	Identifier: 5008	Token: print_statement
-Line Number: 1	Lexeme: (	Identifier: 5012	Token: parenthesis_open
-Line Number: 1	Lexeme: x	Identifier: 8033	Token: id
-Line Number: 1	Lexeme: )	Identifier: 5013	Token: parenthesis_closed

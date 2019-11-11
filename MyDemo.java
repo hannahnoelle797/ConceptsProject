@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Demo {
+public class MyDemo {
 
     public static void main(String[] args) {
         Scanner kb = new Scanner(System.in);
@@ -13,8 +13,8 @@ public class Demo {
             System.out.print("Enter name of output file with .txt extension: ");
             String output = kb.nextLine();
 
-            MyScanner ms = new MyScanner(filename, output); 
-            
+            MyScanner ms = new MyScanner(filename, output);
+
             ms.Scan();
 
             MyParser mp = new MyParser(filename);

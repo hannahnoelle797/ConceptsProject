@@ -1,19 +1,15 @@
 Line Number: 1 Lexeme: x Identifier: 8120 Token: <id>
 Line Number: 1 Lexeme: = Identifier: 5016 Token: <eq_operator>
 Line Number: 1 Lexeme: 2 Identifier: 6002 Token: <integer_literal>
-Full Line 1~ <id> <eq_operator> <integer_literal> 
 Line Number: 2 Lexeme: y Identifier: 8121 Token: <id>
 Line Number: 2 Lexeme: = Identifier: 5016 Token: <eq_operator>
 Line Number: 2 Lexeme: 3 Identifier: 6003 Token: <integer_literal>
-Full Line 2~ <id> <eq_operator> <integer_literal> 
 Line Number: 3 Lexeme: z Identifier: 8122 Token: <id>
 Line Number: 3 Lexeme: = Identifier: 5016 Token: <eq_operator>
 Line Number: 3 Lexeme: x Identifier: 8120 Token: <id>
 Line Number: 3 Lexeme: + Identifier: 5011 Token: <add_operator>
 Line Number: 3 Lexeme: y Identifier: 8121 Token: <id>
-Full Line 3~ <id> <eq_operator> <id> <add_operator> <id> 
 Line Number: 4 Lexeme: print Identifier: 5006 Token: <print>
 Line Number: 4 Lexeme: ( Identifier: 5009 Token: <(>
 Line Number: 4 Lexeme: z Identifier: 8122 Token: <id>
 Line Number: 4 Lexeme: ) Identifier: 5010 Token: <)>
-Full Line 4~ <print> <(> <id> <)> 
