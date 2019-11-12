@@ -1,39 +1,79 @@
+//Hannah Duncan, Colleen Hynes, Mary Le
+//KSU CS 4308 Concepts of Programming Languages
+//Deepa Muralidhar
+//Fall 2019
+
 import java.util.InputMismatchException;
 
+/**
+ * The arithemtic expression class contains all the parts of an arithmetic
+ * expression in the form detailed in the Julia grammar provided. An arithmetic
+ * expression is either an id, a literal integer, or a binary expression. The
+ * type integer variable is the indicator for with type of data is stored within
+ * the arithmetic expression instance.
+ */
 public class arithmetic_ex {
     String id;
     int literal_integer;
     binary_ex binary;
-    int type; // 0 for id, 1 for int, 2 for binary expression
+    int type; // id type = 0, integer type = 1, binary expression type = 2
 
+    /**
+     * Constructor The constructor determines the type of the expression passed in.
+     * It first tries to parse the expression to an integer. If if can parse to an
+     * integer, it stores it in the integer variable literal_integer and sets the
+     * type to 0. Iff this throws an exception, meaning the expression is not an
+     * integer, then the catch block catches the exception. If an exception is
+     * caught, the length is checked. Because all IDs are a single character, if the
+     * length of the expression is 1 then we know the expression is an id. The
+     * String variable id is set to 1. Otherwise, the expression is sent to the
+     * binary expression constructor and the type is set to 2.
+     * 
+     * @param expression
+     */
     public arithmetic_ex(String expression) { // 5 + 10
-        expression = expression.trim();
+        expression = expression.trim(); // remove any white space on the left or right side
         try {
-            literal_integer = Integer.parseInt(expression);
+            literal_integer = Integer.parseInt(expression); // if does not throw exception, expression is an integer
             type = 1;
         } catch (InputMismatchException e) {
-            if (expression.length() == 1) {
-                id = expression;
-                type = 0;
-            } else {
-                binary = new binary_ex(expression);
-                type = 2;
-            }
+            idOrBinary(expression); // calls method for modularity
         } catch (NumberFormatException e) {
-            if (expression.length() == 1) {
-                id = expression;
-                type = 0;
-            } else {
-                binary = new binary_ex(expression);
-                type = 2;
-            }
+            idOrBinary(expression); // calls method for modularity
         }
     }
 
+    /**
+     * Id or Binary Expression method determines if the expression is an id or a
+     * binary expression. Created to increase modularity of class so that same code
+     * does not appear under both catch expressions above.
+     * 
+     * @param expression
+     */
+    public void idOrBinary(String expression) {
+        if (expression.length() == 1) { // if length = 1, then expression is id
+            id = expression;
+            type = 0;
+        } else { // else, binary expression
+            binary = new binary_ex(expression);
+            type = 2;
+        }
+    }
+
+    /**
+     * getType method returns the integer variable 'type'
+     * 
+     * @return int type
+     */
     public int getType() {
         return type;
     }
 
+    /**
+     * getId method returns the String variable 'id' if variable type is set to 0
+     * 
+     * @return String id
+     */
     public String getId() {
         if (type == 0)
             return id;
@@ -41,6 +81,12 @@ public class arithmetic_ex {
             return null;
     }
 
+    /**
+     * getInt method returns the int variable 'literal_integer' if variable type is
+     * set to 1
+     * 
+     * @return int literal_integer
+     */
     public int getInt() {
         if (type == 1)
             return literal_integer;
@@ -48,6 +94,12 @@ public class arithmetic_ex {
             return -1;
     }
 
+    /**
+     * getBinaryEx method returns the toString String value of the binary_ex binary
+     * if variable type is set to 2
+     * 
+     * @return String returned by binary_ex toString method
+     */
     public String getBinaryEx() {
         if (type == 2)
             return binary.toString();
@@ -55,8 +107,15 @@ public class arithmetic_ex {
             return null;
     }
 
+    /**
+     * toGrammar prints out the grammar of this class. Each class represents the LHS
+     * abstraction of the Julia grammar.
+     * 
+     * Full Grammar: <arithmetic_expression> -> id | literal_integer |
+     * <binary_expression>
+     */
     public void toGrammar() {
-        System.out.print("<arithmetic_expression> -> ");
+        System.out.print("<arithmetic_expression> -> "); // printed here b/c it will always be printed
         switch (type) {
         case 0:
             System.out.println("id");
