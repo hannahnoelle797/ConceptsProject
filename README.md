@@ -20,33 +20,31 @@ This project is being completed in three parts:
 __Syntax Analyzer__
 
 ```
-<program> → functionid() <block> end  
+<block> → <statement> | <statement> <block>
 
-<block> → <statement> | <statement> <block>   
+<statement> → <if_statement> | <assignment_statement> | <while_statement> | <print_statement> | <for_statement>
 
-<statement> → <if_statement> | <assignment_statement> | <while_statement> | <print_statement> |<for_statement>  
+<if_statement> → if <boolean_expression> <block> else <block> end
 
-<if_statement> → if <boolean_expression> <block> else <block> end  
+<while_statement> → while <boolean_expression> <block> end
 
-<while_statement> → while <boolean_expression> <block> end  
+<assignment_statement> -> id <assignment_operator> <arithmetic_expression>
 
-<assignment_statement> → id <assignment_operator> <arithmetic_expression>  
+<for_statement> -> for id = <iter> <block> end
 
-<for_statement> → for id = <iter> <block> end  
-
-<print_statement> → print (<arithmetic_expression>)  
+<print_statement> → print ( <arithmetic_expression> )
 
 <iter> → <arithmetic_expression> : <arithmetic_expression>
 
-<boolean_expression> → <relative_op> <arithmetic_expression> <arithmetic_expression>  
+<boolean_expression> → <relative_op> <arithmetic_expression> <arithmetic_expression>
 
-<relative_op> → le_operator | lt_operator | ge_operator |gt_operator | eq_operator | ne_operator  
+<relative_op> → le_operator | lt_operator | ge_operator | gt_operator | eq_operator | ne_operator
 
-<arithmetic_expression> → <id> | <literal_integer> | <binary_expression>  
+<arithmetic_expression> → <id> | <literal_integer> | <binary_expression>
 
-<binary_expression> → <arithmetic_op> <arithmetic_expression> <arithmetic_expression>  
+<binary_expression> → <arithmetic_op> <arithmetic_expression> <arithmetic_expression>
 
-<arithmetic_op> → add_operator | sub_operator | mul_operator | div_operator | mod_operator | exp_operator | rev_dev_operator  
+<arithmetic_op> → add_operator | sub_operator | mul_operator | div_operator | mod_operator | exp_operator | rev_div_operator  
 ```  
 
 __Lexical Analyzer__  
