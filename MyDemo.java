@@ -1,5 +1,17 @@
+//Hannah Duncan, Colleen Hynes, Mary Le
+//KSU CS 4308 Concepts of Programming Languages
+//Deepa Muralidhar
+//Fall 2019
+
 import java.util.Scanner;
 
+/**
+ * The MyDemo class contains the main method of this project. It creates a
+ * MyScanner object with the two file names entered and calls the public method
+ * Scan to scan the inputed file. A MyParser object is created with the input
+ * file name and the public method parse is called. The user then has the option
+ * to run another file through the scanner and parser.
+ */
 public class MyDemo {
 
     public static void main(String[] args) {

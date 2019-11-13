@@ -17,13 +17,6 @@ public class block {
     private ArrayList<int[]> blockStartsEnds = new ArrayList<>();
 
     /**
-     * Empty constructor
-     */
-    public block() {
-
-    }
-
-    /**
      * Constructor This block constructor takes in an array of expression. These
      * expressions are then passed to the findNextStatement method.
      * 

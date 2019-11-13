@@ -1,27 +1,21 @@
 Line Number: 1 Lexeme: r Identifier: 8114 Token: <id>
 Line Number: 1 Lexeme: = Identifier: 5016 Token: <eq_operator>
 Line Number: 1 Lexeme: 5 Identifier: 6005 Token: <integer_literal>
-Full Line 1~ <id> <eq_operator> <integer_literal> 
 Line Number: 2 Lexeme: while Identifier: 5008 Token: while_statement
 Line Number: 2 Lexeme: r Identifier: 8114 Token: <id>
 Line Number: 2 Lexeme: <= Identifier: 5019 Token: <le_operator>
 Line Number: 2 Lexeme: 10 Identifier: 6010 Token: <integer_literal>
-Full Line 2~ while_statement <id> <le_operator> <integer_literal> 
 Line Number: 3 Lexeme: print Identifier: 5006 Token: <print>
 Line Number: 3 Lexeme: ( Identifier: 5009 Token: <(>
 Line Number: 3 Lexeme: r Identifier: 8114 Token: <id>
 Line Number: 3 Lexeme: ) Identifier: 5010 Token: <)>
-Full Line 3~ <print> <(> <id> <)> 
 Line Number: 4 Lexeme: r Identifier: 8114 Token: <id>
 Line Number: 4 Lexeme: = Identifier: 5016 Token: <eq_operator>
 Line Number: 4 Lexeme: r Identifier: 8114 Token: <id>
 Line Number: 4 Lexeme: + Identifier: 5011 Token: <add_operator>
 Line Number: 4 Lexeme: 1 Identifier: 6001 Token: <integer_literal>
-Full Line 4~ <id> <eq_operator> <id> <add_operator> <integer_literal> 
 Line Number: 5 Lexeme: end Identifier: 5001 Token: <end>
-Full Line 5~ <end> 
 Line Number: 6 Lexeme: print Identifier: 5006 Token: <print>
 Line Number: 6 Lexeme: ( Identifier: 5009 Token: <(>
 Line Number: 6 Lexeme: 89 Identifier: 6089 Token: <integer_literal>
 Line Number: 6 Lexeme: ) Identifier: 5010 Token: <)>
-Full Line 6~ <print> <(> <integer_literal> <)> 

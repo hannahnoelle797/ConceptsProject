@@ -10,13 +10,16 @@ import java.util.ArrayList;
  * stores the id used for the counter, an iterator object, and a block object
  * which contains the body of the for loop. The boolean variable 'nested' is
  * used to determine if the body of the for loop contains another loop or
- * conditional statement.
+ * conditional statement. The integer variable nestedCount is used to count how
+ * many nested statements are within the encapsulating for loop.
  */
 public class for_statement {
     private String id;
     private iter iterator;
     private block statement;
+
     private boolean nested = false;
+    private int nestedCount = 0;
 
     /**
      * Constructor Reads in the entire body of the for loop, including the header of
@@ -28,9 +31,11 @@ public class for_statement {
      * which is passed to the iter class. The rest of the expressions array is the
      * body of the for loop. Each line is checked to determine if it contains a
      * nested loop or conditional statement. If it does, the boolean nested is set
-     * to true. If the loop encounters are line that contains end but the boolean
-     * nested is set to true, that means the line is not the end of the for loop.
-     * The line is added to the forBody array and parsing continues.
+     * to true and nested count is incremented. If the loop encounters a line that
+     * contains end but the boolean nested is set to true, that means the line is
+     * not the end of the for loop. The line is added to the forBody array, nested
+     * count is decremented and parsing continues. The boolean nested is reset to
+     * false if nested count is zero.
      * 
      * @param expressions
      */
@@ -42,19 +47,31 @@ public class for_statement {
         ArrayList<String> forBody = new ArrayList<>();
         for (int i = 1; i < expressions.size(); i++) {
             if (!expressions.get(i).contains("end")) {
-                if (expressions.get(i).contains("if") || expressions.get(i).contains("while")
-                        || expressions.get(i).contains("for")) {
-                    nested = true;
-                }
+                isNested(expressions.get(i));
                 forBody.add(expressions.get(i));
             } else {
                 if (nested) {
                     forBody.add(expressions.get(i));
-                    nested = false;
+                    nestedCount--;
+                    if (nestedCount == 0)
+                        nested = false; // nested is reset to false if there are no remaining end statements
                 }
             }
         }
         statement = new block(forBody);
+    }
+
+    /**
+     * Checks to see if the lines contains "if", "while", or "for". If it does,
+     * there is a nested loop/conditional. If there is, nested set to true.
+     * 
+     * @param line
+     */
+    public void isNested(String line) {
+        if (line.contains("if") || line.contains("while") || line.contains("for")) {
+            nested = true;
+            nestedCount++; // number of nested statements within encapsulating if statement
+        }
     }
 
     /**
@@ -71,7 +88,7 @@ public class for_statement {
      * abstraction of the Julia grammar. It then calls the toGrammar for each
      * non-terminal piece of the grammar.
      * 
-     * Full Grammar: for id = <iter> <block> end
+     * Full Grammar: <for_statement> -> for id = <iter> <block> end
      */
     public void toGrammar() {
         System.out.println("<for_statement> -> for id = <iter> <block> end");

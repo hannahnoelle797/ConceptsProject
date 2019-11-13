@@ -3,6 +3,9 @@
 //Deepa Muralidhar
 //Fall 2019
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /**
  * The arithmetic operator class stores the operator used in a binary expression
  * instance. The operators array stores the possible operators and is used to
@@ -12,46 +15,25 @@
  * returning the operator or printing the grammar.
  */
 public class arithmetic_op {
-    String[] operators = { "+", "-", "*", "/", "%", "^", "\\" };
+    ArrayList<String> operators = new ArrayList<String>(Arrays.asList("+", "-", "*", "/", "%", "^", "\\"));
     String[] opTokens = { "add_operator", "sub_operator", "mul_operator", "div_operator", "mod_operator",
             "exp_operator", "rev_div_operator" };
     int indexOfCurrOp = 0;
 
     /**
      * Constructor Receives a string containing the operator found in the binary
-     * expression instance it's being called from. Uses a switch statement to
-     * determine the operator and to set the indexOfCurrOp. If not found, throws an
-     * error.
+     * expression instance it's being called from. Checks to see if op is within the
+     * array list operators. If found, index of that operator is used to set
+     * indexOfCurrOp. If not found, throws an error.
      * 
      * @param op
      */
     public arithmetic_op(String op) {
-        switch (op) {
-        case "+":
-            indexOfCurrOp = 0;
-            break;
-        case "-":
-            indexOfCurrOp = 1;
-            break;
-        case "*":
-            indexOfCurrOp = 2;
-            break;
-        case "/":
-            indexOfCurrOp = 3;
-            break;
-        case "%":
-            indexOfCurrOp = 4;
-            break;
-        case "^":
-            indexOfCurrOp = 5;
-            break;
-        case "\\":
-            indexOfCurrOp = 6;
-            break;
-        default:
-            indexOfCurrOp = -1;
-            // TODO: Throw an error here
-            break;
+        if (operators.contains(op)) {
+            indexOfCurrOp = operators.indexOf(op);
+        } else {
+            System.out.println("Operator not found");
+            // TODO: throw an error here
         }
     }
 
@@ -62,7 +44,7 @@ public class arithmetic_op {
      * @return String
      */
     public String getArithmeticOp() {
-        return operators[indexOfCurrOp];
+        return operators.get(indexOfCurrOp);
     }
 
     /**
