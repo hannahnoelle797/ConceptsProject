@@ -73,10 +73,25 @@ public class boolean_ex {
         operator.toGrammar();
         right.toGrammar();
         right.printContents();
+        prefix();
     }
 
+    /**
+     * Method prints the contents of the left and right side of the boolean
+     * expression
+     */
     public void printContents() {
         left.printContents();
         right.printContents();
+    }
+
+    /**
+     * Method prints the boolean expression in prefix notation. Calls operator's
+     * getRelativeOp method to get the operator.
+     * 
+     * i.e. operator left right
+     */
+    public void prefix() {
+
     }
 }
