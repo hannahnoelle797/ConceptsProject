@@ -69,7 +69,14 @@ public class boolean_ex {
     public void toGrammar() {
         System.out.println("<boolean_expression> -> <arithmetic_expression> <relative_op> <arithmetic_expression>");
         left.toGrammar();
+        left.printContents();
         operator.toGrammar();
         right.toGrammar();
+        right.printContents();
+    }
+
+    public void printContents() {
+        left.printContents();
+        right.printContents();
     }
 }

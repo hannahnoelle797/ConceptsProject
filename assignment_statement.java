@@ -45,6 +45,16 @@ public class assignment_statement {
      */
     public void toGrammar() {
         System.out.println("<assignment_statement> -> id <assignment_operator> <arithmetic_expression>");
+        printContents();
         expression.toGrammar();
+        expression.printContents();
+    }
+
+    /**
+     * The method prints out the id that is being used to store data and the
+     * contents of the arithmetic epxression.
+     */
+    public void printContents() {
+
     }
 }

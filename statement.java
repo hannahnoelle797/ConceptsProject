@@ -117,4 +117,12 @@ public class statement {
             break;
         }
     }
+
+    /**
+     * Prints the contents of the statement based on it's type. Uses a switch
+     * statement determine which printContents method to call.
+     */
+    public void printContents() {
+
+    }
 }

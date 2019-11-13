@@ -132,4 +132,12 @@ public class arithmetic_ex {
         }
 
     }
+
+    /**
+     * Prints the contents of the id, literal integer, or binary epxression based on
+     * which object is stored.
+     */
+    public void printContents() {
+
+    }
 }

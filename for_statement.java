@@ -92,7 +92,18 @@ public class for_statement {
      */
     public void toGrammar() {
         System.out.println("<for_statement> -> for id = <iter> <block> end");
+        printContents();
         iterator.toGrammar();
+        iterator.printContents();
         statement.toGrammar();
+        statement.printContents();
+    }
+
+    /**
+     * The method prints out the id that is being used to store the counter for the
+     * for loop.
+     */
+    public void printContents() {
+
     }
 }

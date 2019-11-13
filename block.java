@@ -152,4 +152,12 @@ public class block {
             s.toGrammar();
         }
     }
+
+    /**
+     * Prints the contents of every statement in the blockStatements array list.
+     * Uses for loop to call printContents method on every statement.
+     */
+    public void printContents() {
+
+    }
 }
