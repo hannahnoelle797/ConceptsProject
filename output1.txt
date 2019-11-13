@@ -1,4 +1,0 @@
-Line Number: 1	Lexeme: print	Token: print_statement
-Line Number: 1	Lexeme: (	Token: parenthesis_open
-Line Number: 1	Lexeme: x	Token: id
-Line Number: 1	Lexeme: )	Token: parenthesis_closed

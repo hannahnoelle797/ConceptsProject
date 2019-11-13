@@ -1,4 +1,0 @@
-function p()
-    q = 7
-    print(q)
-end
