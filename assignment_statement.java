@@ -48,6 +48,7 @@ public class assignment_statement {
         printContents();
         expression.toGrammar();
         expression.printContents();
+        prefix();
     }
 
     /**
@@ -55,6 +56,15 @@ public class assignment_statement {
      * contents of the arithmetic epxression.
      */
     public void printContents() {
+
+    }
+
+    /**
+     * Method prints the assignment statement in prefix format
+     * 
+     * i.e. = id arithemetic_ex
+     */
+    public void prefix() {
 
     }
 }

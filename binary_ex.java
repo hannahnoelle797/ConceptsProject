@@ -89,4 +89,14 @@ public class binary_ex {
         right.printContents();
     }
 
+    /**
+     * Prints the binary expression in prefix notation. Calls prefix method for left
+     * and right. Calls operator's getArithmeticOp method to get the operator.
+     * 
+     * i.e. operator left right
+     */
+    public void prefix() {
+
+    }
+
 }

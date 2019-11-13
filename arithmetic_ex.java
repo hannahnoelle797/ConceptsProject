@@ -140,4 +140,14 @@ public class arithmetic_ex {
     public void printContents() {
 
     }
+
+    /**
+     * Prints the expression in prefix notation if contents is a binary expression.
+     * Calls binary expression prefix method to do so.
+     * 
+     */
+    public void prefix() {
+        if (type == 2)
+            binary.prefix();
+    }
 }
