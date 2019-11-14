@@ -92,10 +92,10 @@ public class for_statement {
      */
     public void toGrammar() {
         System.out.println("<for_statement> -> for id = <iter> <block> end");
-        printContents();
         iterator.toGrammar();
-        iterator.printContents();
         statement.toGrammar();
+        printContents();
+        iterator.printContents();
         statement.printContents();
     }
 
@@ -104,6 +104,6 @@ public class for_statement {
      * for loop.
      */
     public void printContents() {
-
+        System.out.println("id = " + id);
     }
 }

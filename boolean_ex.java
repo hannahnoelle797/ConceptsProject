@@ -73,20 +73,11 @@ public class boolean_ex {
     public void toGrammar() {
         System.out.println("<boolean_expression> -> <arithmetic_expression> <relative_op> <arithmetic_expression>");
         left.toGrammar();
-        left.printContents();
         operator.toGrammar();
         right.toGrammar();
-        right.printContents();
-        prefix();
-    }
-
-    /**
-     * Method prints the contents of the left and right side of the boolean
-     * expression
-     */
-    public void printContents() {
         left.printContents();
         right.printContents();
+        prefix();
     }
 
     /**
@@ -96,6 +87,9 @@ public class boolean_ex {
      * i.e. operator left right
      */
     public void prefix() {
-
+        System.out.print(operator.getRelativeOp() + " ");
+        left.prefix();
+        right.prefix();
+        System.out.println();
     }
 }

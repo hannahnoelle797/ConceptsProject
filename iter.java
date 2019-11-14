@@ -47,12 +47,7 @@ public class iter {
         right.toGrammar();
     }
 
-    /**
-     * Prints the starting value and ending value of the iterator. Calls the
-     * printContent methods for both arithmetic expressions, left and right.
-     */
     public void printContents() {
-
     }
 
 }

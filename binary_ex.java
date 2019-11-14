@@ -87,10 +87,8 @@ public class binary_ex {
     public void toGrammar() {
         System.out.println("<binary_expression> -> <arithmeitc_expression> <arithmetic_op> <arithmetic_expression>");
         left.toGrammar();
-        left.printContents();
         operator.toGrammar();
         right.toGrammar();
-        right.printContents();
     }
 
     /**
@@ -100,7 +98,10 @@ public class binary_ex {
      * i.e. operator left right
      */
     public void prefix() {
-
+        System.out.print(operator.getArithmeticOp() + " ");
+        left.prefix();
+        right.prefix();
+        System.out.println();
     }
 
 }
