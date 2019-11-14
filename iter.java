@@ -40,14 +40,9 @@ public class iter {
     public void toGrammar() {
         System.out.println("<iter> -> <arithmetic_expression> : <arithmetic_expression>");
         left.toGrammar();
+        left.printContents();
         right.toGrammar();
-    }
-
-    /**
-     * Prints the starting value and ending value of the iterator. Calls the
-     * printContent methods for both arithmetic expressions, left and right.
-     */
-    public void printContents() {
+        right.printContents();
 
     }
 

@@ -159,7 +159,16 @@ public class arithmetic_ex {
      * 
      */
     public void prefix() {
-        if (type == 2)
+        switch (type) {
+        case 0:
+            System.out.println(id);
+            break;
+        case 1:
+            System.out.println(literal_integer);
+            break;
+        case 2:
             binary.prefix();
+            break;
+        }
     }
 }

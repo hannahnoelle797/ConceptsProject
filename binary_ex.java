@@ -96,6 +96,9 @@ public class binary_ex {
      * i.e. operator left right
      */
     public void prefix() {
+        System.out.print(operator.getArithmeticOp() + " ");
+        left.prefix();
+        right.prefix();
 
     }
 

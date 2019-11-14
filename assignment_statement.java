@@ -56,6 +56,7 @@ public class assignment_statement {
      * contents of the arithmetic epxression.
      */
     public void printContents() {
+        System.out.print("= " + id + " ");
 
     }
 
@@ -65,6 +66,8 @@ public class assignment_statement {
      * i.e. = id arithemetic_ex
      */
     public void prefix() {
+        System.out.print("= " + id + " ");
+        expression.prefix();
 
     }
 }
