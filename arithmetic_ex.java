@@ -119,9 +119,11 @@ public class arithmetic_ex {
         switch (type) {
         case 0:
             System.out.println("id");
+            printContents();
             break;
         case 1:
             System.out.println("literal_integer");
+            printContents();
             break;
         case 2:
             System.out.println("<binary_expression>");
@@ -138,7 +140,17 @@ public class arithmetic_ex {
      * which object is stored.
      */
     public void printContents() {
-
+        switch (type) {
+        case 0:
+            System.out.println("id = " + id);
+            break;
+        case 1:
+            System.out.println("literal_integer = " + literal_integer);
+            break;
+        default:
+            System.out.println();
+            break;
+        }
     }
 
     /**
