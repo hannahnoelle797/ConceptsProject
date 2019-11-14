@@ -22,7 +22,7 @@ public class arithmetic_ex {
      * Constructor The constructor determines the type of the expression passed in.
      * It first tries to parse the expression to an integer. If if can parse to an
      * integer, it stores it in the integer variable literal_integer and sets the
-     * type to 0. Iff this throws an exception, meaning the expression is not an
+     * type to 0. If this throws an exception, meaning the expression is not an
      * integer, then the catch block catches the exception. If an exception is
      * caught, the length is checked. Because all IDs are a single character, if the
      * length of the expression is 1 then we know the expression is an id. The
@@ -159,7 +159,16 @@ public class arithmetic_ex {
      * 
      */
     public void prefix() {
-        if (type == 2)
+        switch (type) {
+        case 0:
+            System.out.println(id);
+            break;
+        case 1:
+            System.out.println(literal_integer);
+            break;
+        case 2:
             binary.prefix();
+            break;
+        }
     }
 }

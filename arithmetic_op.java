@@ -29,11 +29,14 @@ public class arithmetic_op {
      * @param op
      */
     public arithmetic_op(String op) {
-        if (operators.contains(op)) {
-            indexOfCurrOp = operators.indexOf(op);
-        } else {
-            System.out.println("Operator not found");
-            // TODO: throw an error here
+        try {
+            if (operators.contains(op)) {
+                indexOfCurrOp = operators.indexOf(op);
+            } else {
+                throw new JuliaSyntaxException("arith");
+            }
+        } catch (JuliaSyntaxException e) {
+
         }
     }
 

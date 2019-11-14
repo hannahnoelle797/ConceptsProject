@@ -21,12 +21,16 @@ public class iter {
      * @param expression
      */
     public iter(String expression) {
-        if (expression.contains(":")) {
-            String[] parts = expression.split(":");
-            left = new arithmetic_ex(parts[0]);
-            right = new arithmetic_ex(parts[1]);
-        } else {
-            System.out.println("Invalid format");
+        try {
+            if (expression.contains(":")) {
+                String[] parts = expression.split(":");
+                left = new arithmetic_ex(parts[0]);
+                right = new arithmetic_ex(parts[1]);
+            } else {
+                throw new JuliaSyntaxException("for iterator");
+            }
+        } catch (JuliaSyntaxException e) {
+
         }
     }
 
