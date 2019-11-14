@@ -81,21 +81,17 @@ public class boolean_ex {
     }
 
     /**
-     * Method prints the contents of the left and right side of the boolean
-     * expression
-     */
-    public void printContents() {
-        left.printContents();
-        right.printContents();
-    }
-
-    /**
      * Method prints the boolean expression in prefix notation. Calls operator's
      * getRelativeOp method to get the operator.
      * 
      * i.e. operator left right
      */
-    public void prefix() {
+    public void prefix() 
+    {
+        System.out.print(operator.getRelativeOp() + " ");
+        left.prefix();
+        right.prefix();
+        
 
     }
 }

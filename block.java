@@ -169,6 +169,9 @@ public class block {
      * Uses for loop to call printContents method on every statement.
      */
     public void printContents() {
+        for (statement s : blockStatements) {
+            s.printContents();
+        }
 
     }
 }

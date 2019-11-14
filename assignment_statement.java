@@ -56,6 +56,7 @@ public class assignment_statement {
      * contents of the arithmetic epxression.
      */
     public void printContents() {
+        System.out.print("= " + id + " ");
 
     }
 

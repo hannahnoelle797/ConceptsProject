@@ -104,6 +104,6 @@ public class for_statement {
      * for loop.
      */
     public void printContents() {
-
+        System.out.println("id = " + id);
     }
 }

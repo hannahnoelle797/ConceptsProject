@@ -105,6 +105,7 @@ public class statement {
             case 1:
                 System.out.println("<statement> -> <assignment_statement>");
                 assignStmt.toGrammar();
+                assignStmt.printContents();
                 break;
             case 2:
                 System.out.println("<statement> -> <while_statement>");
@@ -113,6 +114,7 @@ public class statement {
             case 3:
                 System.out.println("<statement> -> <print_statement>");
                 printStmt.toGrammar();
+                printStmt.printContents();
                 break;
             case 4:
                 System.out.println("<statement> -> <for_statement>");
@@ -124,13 +126,5 @@ public class statement {
         } catch (JuliaSyntaxException e) {
 
         }
-    }
-
-    /**
-     * Prints the contents of the statement based on it's type. Uses a switch
-     * statement determine which printContents method to call.
-     */
-    public void printContents() {
-
     }
 }

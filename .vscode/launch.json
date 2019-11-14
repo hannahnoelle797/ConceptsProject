@@ -4,6 +4,12 @@
             "type": "java",
             "name": "CodeLens (Launch) - MyDemo",
             "request": "launch",
+            "mainClass": "MyDemo"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - MyDemo",
+            "request": "launch",
             "mainClass": "MyDemo",
             "projectName": "ConceptsProject_2dc2b230"
         },

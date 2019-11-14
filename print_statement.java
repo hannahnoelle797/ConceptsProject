@@ -31,4 +31,8 @@ public class print_statement {
         expression.toGrammar();
         expression.printContents();
     }
+
+    public void printContents() {
+
+    }
 }
