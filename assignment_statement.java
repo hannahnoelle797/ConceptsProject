@@ -68,6 +68,5 @@ public class assignment_statement {
     public void prefix() {
         System.out.print("= " + id + " ");
         expression.prefix();
-
     }
 }

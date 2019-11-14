@@ -28,11 +28,14 @@ public class relative_op {
      * @param op
      */
     public relative_op(String op) {
-        if (operators.contains(op))
-            indexOfCurrOp = operators.indexOf(op);
-        else {
-            System.out.println("Operator not found");
-            // TODO: throw an error here
+        try {
+            if (operators.contains(op))
+                indexOfCurrOp = operators.indexOf(op);
+            else {
+                throw new JuliaSyntaxException("relative");
+            }
+        } catch (JuliaSyntaxException e) {
+
         }
     }
 

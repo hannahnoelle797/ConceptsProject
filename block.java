@@ -58,6 +58,17 @@ public class block {
                 } while (w >= 0);
             }
         }
+
+        // Making sure that every if, for, or while has an end
+        try {
+            for (int l = 0; l < blockStartsEnds.size(); l++) {
+                if (blockStartsEnds.get(l)[1] == -1)
+                    throw new JuliaSyntaxException(lines.get(blockStartsEnds.get(l)[0]) + " end");
+            }
+        } catch (JuliaSyntaxException e) {
+
+        }
+
         while (i < size) { // checking each line
             if (lines.get(i).length() > 0) {
                 if (lines.get(i).contains("if")) {

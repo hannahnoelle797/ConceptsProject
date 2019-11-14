@@ -33,18 +33,21 @@ public class statement {
      * @param expression
      */
     public statement(int type, String expression) {
-        this.type = type;
-        switch (type) {
-        case 1:
-            assignStmt = new assignment_statement(expression);
-            break;
-        case 3:
-            printStmt = new print_statement(expression.substring(expression.indexOf("(") + 1, expression.indexOf(")")));
-            break;
-        default:
-            System.out.println("Statement grammar not found");
-            // TODO: throw error here
-            break;
+        try {
+            this.type = type;
+            switch (type) {
+            case 1:
+                assignStmt = new assignment_statement(expression);
+                break;
+            case 3:
+                printStmt = new print_statement(
+                        expression.substring(expression.indexOf("(") + 1, expression.indexOf(")")));
+                break;
+            default:
+                throw new JuliaSyntaxException("grammar");
+            }
+        } catch (JuliaSyntaxException e) {
+
         }
     }
 
@@ -57,26 +60,29 @@ public class statement {
      * @param expressions
      */
     public statement(int type, ArrayList<String> expressions) {
-        this.type = type;
-        switch (type) {
-        case 0:
-            ifStmt = new if_statement(expressions);
-            break;
-        case 1:
-            assignStmt = new assignment_statement(expressions.get(0));
-            break;
-        case 2:
-            whileStmt = new while_statement(expressions);
-            break;
-        case 3:
-            printStmt = new print_statement(expressions.get(0));
-            break;
-        case 4:
-            forStmt = new for_statement(expressions);
-            break;
-        default:
-            System.out.println("Statement grammar not found");
-            break;
+        try {
+            this.type = type;
+            switch (type) {
+            case 0:
+                ifStmt = new if_statement(expressions);
+                break;
+            case 1:
+                assignStmt = new assignment_statement(expressions.get(0));
+                break;
+            case 2:
+                whileStmt = new while_statement(expressions);
+                break;
+            case 3:
+                printStmt = new print_statement(expressions.get(0));
+                break;
+            case 4:
+                forStmt = new for_statement(expressions);
+                break;
+            default:
+                throw new JuliaSyntaxException(expressions.get(0));
+            }
+        } catch (JuliaSyntaxException e) {
+
         }
     }
 
@@ -90,33 +96,35 @@ public class statement {
      * <while_statement> | <print_statement> | <for_statement>
      */
     public void toGrammar() {
-        switch (type) {
-        case 0:
-            System.out.println("<statement> -> <if_statement>");
-            ifStmt.toGrammar();
-            break;
-        case 1:
-            System.out.println("<statement> -> <assignment_statement>");
-            assignStmt.toGrammar();
-            assignStmt.printContents();
-            break;
-        case 2:
-            System.out.println("<statement> -> <while_statement>");
-            whileStmt.toGrammar();
-            break;
-        case 3:
-            System.out.println("<statement> -> <print_statement>");
-            printStmt.toGrammar();
-            printStmt.printContents();
-            break;
-        case 4:
-            System.out.println("<statement> -> <for_statement>");
-            forStmt.toGrammar();
-            break;
-        default:
-            System.out.println("Statement grammar not found");
-            // TODO: throw error here
-            break;
+        try {
+            switch (type) {
+            case 0:
+                System.out.println("<statement> -> <if_statement>");
+                ifStmt.toGrammar();
+                break;
+            case 1:
+                System.out.println("<statement> -> <assignment_statement>");
+                assignStmt.toGrammar();
+                assignStmt.printContents();
+                break;
+            case 2:
+                System.out.println("<statement> -> <while_statement>");
+                whileStmt.toGrammar();
+                break;
+            case 3:
+                System.out.println("<statement> -> <print_statement>");
+                printStmt.toGrammar();
+                printStmt.printContents();
+                break;
+            case 4:
+                System.out.println("<statement> -> <for_statement>");
+                forStmt.toGrammar();
+                break;
+            default:
+                throw new JuliaSyntaxException("grammar");
+            }
+        } catch (JuliaSyntaxException e) {
+
         }
     }
 }

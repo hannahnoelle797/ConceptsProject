@@ -22,20 +22,24 @@ public class boolean_ex {
      * @param expression
      */
     public boolean_ex(String expression) {
-        if (expression.contains("<="))
-            splitExpression(expression, "<=");
-        else if (expression.contains(">="))
-            splitExpression(expression, ">=");
-        else if (expression.contains(">"))
-            splitExpression(expression, ">");
-        else if (expression.contains("<"))
-            splitExpression(expression, "<");
-        else if (expression.contains("=="))
-            splitExpression(expression, "==");
-        else if (expression.contains("!="))
-            splitExpression(expression, "!=");
-        else
-            System.out.println("No operator found. Invalid expression");
+        try {
+            if (expression.contains("<="))
+                splitExpression(expression, "<=");
+            else if (expression.contains(">="))
+                splitExpression(expression, ">=");
+            else if (expression.contains(">"))
+                splitExpression(expression, ">");
+            else if (expression.contains("<"))
+                splitExpression(expression, "<");
+            else if (expression.contains("=="))
+                splitExpression(expression, "==");
+            else if (expression.contains("!="))
+                splitExpression(expression, "!=");
+            else
+                throw new JuliaSyntaxException("relative");
+        } catch (JuliaSyntaxException e) {
+
+        }
     }
 
     /**

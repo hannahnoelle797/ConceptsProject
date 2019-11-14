@@ -24,21 +24,25 @@ public class binary_ex {
      * @param expression
      */
     public binary_ex(String expression) {
-        fullExpression = expression.trim();
-        if (expression.contains("*"))
-            splitExpression(expression, "*");
-        else if (expression.contains("/"))
-            splitExpression(expression, "/");
-        else if (expression.contains("+"))
-            splitExpression(expression, "+");
-        else if (expression.contains("-"))
-            splitExpression(expression, "-");
-        else if (expression.contains("%"))
-            splitExpression(expression, "%");
-        else if (expression.contains("\\"))
-            splitExpression(expression, "\\");
-        else
-            System.out.println("No operator found. Invalid expression");
+        try {
+            fullExpression = expression.trim();
+            if (expression.contains("*"))
+                splitExpression(expression, "*");
+            else if (expression.contains("/"))
+                splitExpression(expression, "/");
+            else if (expression.contains("+"))
+                splitExpression(expression, "+");
+            else if (expression.contains("-"))
+                splitExpression(expression, "-");
+            else if (expression.contains("%"))
+                splitExpression(expression, "%");
+            else if (expression.contains("\\"))
+                splitExpression(expression, "\\");
+            else
+                throw new JuliaSyntaxException("arith");
+        } catch (JuliaSyntaxException e) {
+
+        }
     }
 
     /**
