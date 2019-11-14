@@ -65,6 +65,7 @@ public class assignment_statement {
      * i.e. = id arithemetic_ex
      */
     public void prefix() {
-
+        System.out.print("= " + id + " ");
+        expression.prefix();
     }
 }
