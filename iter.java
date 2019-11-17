@@ -47,7 +47,4 @@ public class iter {
         right.toGrammar();
     }
 
-    public void printContents() {
-    }
-
 }

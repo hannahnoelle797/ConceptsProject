@@ -30,7 +30,4 @@ public class print_statement {
         System.out.println("<print_statement> -> print ( <arithmetic_expression> )");
         expression.toGrammar();
     }
-
-    public void printContents() {
-    }
 }

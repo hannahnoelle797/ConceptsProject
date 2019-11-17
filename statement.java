@@ -133,18 +133,10 @@ public class statement {
     public void printContents() {
         try {
             switch (type) {
-            case 0:
-                ifStmt.printContents();
-                break;
             case 1:
                 assignStmt.printContents();
                 break;
             case 2:
-                whileStmt.printContents();
-                break;
-            case 3:
-                printStmt.printContents();
-                break;
             case 4:
                 forStmt.printContents();
                 break;

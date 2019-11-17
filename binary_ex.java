@@ -89,6 +89,7 @@ public class binary_ex {
         left.toGrammar();
         operator.toGrammar();
         right.toGrammar();
+        prefix();
     }
 
     /**

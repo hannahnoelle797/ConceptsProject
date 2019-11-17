@@ -106,11 +106,6 @@ public class if_statement {
         bool.toGrammar();
         ifBody.toGrammar();
         elseBody.toGrammar();
-        ifBody.printContents();
-        elseBody.printContents();
-    }
-
-    public void printContents() {
     }
 
 }
