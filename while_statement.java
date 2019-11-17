@@ -79,8 +79,6 @@ public class while_statement {
     public void toGrammar() {
         System.out.println("<while_statement> -> while <boolean_expression> <block> end");
         boolEx.toGrammar();
-        boolEx.printContents();
         body.toGrammar();
-        body.printContents();
     }
 }

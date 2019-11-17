@@ -131,6 +131,19 @@ public class statement {
      * statement determine which printContents method to call.
      */
     public void printContents() {
-
+        try {
+            switch (type) {
+            case 1:
+                assignStmt.printContents();
+                break;
+            case 2:
+            case 4:
+                forStmt.printContents();
+                break;
+            default:
+                throw new JuliaSyntaxException("grammar");
+            }
+        } catch (JuliaSyntaxException e) {
+        }
     }
 }

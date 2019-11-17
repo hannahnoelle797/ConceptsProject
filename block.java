@@ -164,11 +164,9 @@ public class block {
         }
     }
 
-    /**
-     * Prints the contents of every statement in the blockStatements array list.
-     * Uses for loop to call printContents method on every statement.
-     */
     public void printContents() {
-
+        for (statement s : blockStatements) {
+            s.printContents();
+        }
     }
 }

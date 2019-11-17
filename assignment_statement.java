@@ -47,7 +47,6 @@ public class assignment_statement {
         System.out.println("<assignment_statement> -> id <assignment_operator> <arithmetic_expression>");
         printContents();
         expression.toGrammar();
-        expression.printContents();
         prefix();
     }
 
@@ -56,7 +55,7 @@ public class assignment_statement {
      * contents of the arithmetic epxression.
      */
     public void printContents() {
-
+        System.out.println("id = " + id);
     }
 
     /**
@@ -67,5 +66,6 @@ public class assignment_statement {
     public void prefix() {
         System.out.print("= " + id + " ");
         expression.prefix();
+        System.out.println();
     }
 }

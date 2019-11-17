@@ -161,10 +161,10 @@ public class arithmetic_ex {
     public void prefix() {
         switch (type) {
         case 0:
-            System.out.println(id);
+            System.out.print(id + " ");
             break;
         case 1:
-            System.out.println(literal_integer);
+            System.out.print(literal_integer + " ");
             break;
         case 2:
             binary.prefix();

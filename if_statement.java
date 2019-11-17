@@ -104,11 +104,8 @@ public class if_statement {
     public void toGrammar() {
         System.out.println("<if_statement> -> if <boolean_expression> <block> else <block> end");
         bool.toGrammar();
-        bool.printContents();
         ifBody.toGrammar();
-        ifBody.printContents();
         elseBody.toGrammar();
-        elseBody.printContents();
     }
 
 }

@@ -29,6 +29,5 @@ public class print_statement {
     public void toGrammar() {
         System.out.println("<print_statement> -> print ( <arithmetic_expression> )");
         expression.toGrammar();
-        expression.printContents();
     }
 }
