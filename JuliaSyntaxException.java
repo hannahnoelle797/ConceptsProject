@@ -26,5 +26,7 @@ public class JuliaSyntaxException extends Exception {
         } else if (s.contains("=")) {
             System.out.println("ASSIGNEMNT STATEMENT ERROR: " + s);
         }
+        printStackTrace();
+        System.exit(1);
     }
 }

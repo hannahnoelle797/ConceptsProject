@@ -6,7 +6,7 @@ Line Number: 1 Lexeme: : Identifier: 5024 Token: <colon>
 Line Number: 1 Lexeme: 5 Identifier: 6005 Token: <integer_literal>
 Line Number: 2 Lexeme: if Identifier: 5005 Token: <if>
 Line Number: 2 Lexeme: i Identifier: 8105 Token: <id>
-Line Number: 2 Lexeme: != Identifier: 5022 Token: <ne_operator>
+Line Number: 2 Lexeme: = Identifier: 5016 Token: <eq_operator>
 Line Number: 2 Lexeme: 4 Identifier: 6004 Token: <integer_literal>
 Line Number: 3 Lexeme: print Identifier: 5006 Token: <print>
 Line Number: 3 Lexeme: ( Identifier: 5009 Token: <(>
