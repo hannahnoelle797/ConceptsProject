@@ -20,11 +20,13 @@ public class JuliaSyntaxException extends Exception {
         } else if (s.contains("end")) {
             System.out.println("RANDOM END STATEMENT");
         } else if (s.contains("grammar")) {
-            System.out.println("UNKNOWN ERROR. PROBLEM WITH TOGRAMMAR");
+            System.out.println("UNKNOWN ERROR. PROBLEM WITH TO GRAMMAR");
         } else if (s.contains("print")) {
             System.out.println("PRINT STATEMENT ERROR: " + s);
         } else if (s.contains("=")) {
             System.out.println("ASSIGNEMNT STATEMENT ERROR: " + s);
+        } else {
+            System.out.println("UNKNOWN ERROR. PROBLEM WITH SYNTAX");
         }
         printStackTrace();
         System.exit(1);

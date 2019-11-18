@@ -10,7 +10,6 @@ Line Number: 3 Lexeme: ( Identifier: 5009 Token: <(>
 Line Number: 3 Lexeme: x Identifier: 8120 Token: <id>
 Line Number: 3 Lexeme: ) Identifier: 5010 Token: <)>
 Line Number: 4 Lexeme: else Identifier: 5000 Token: <else>
-Line Number: 5 Lexeme: print Identifier: 5006 Token: <print>
 Line Number: 5 Lexeme: ( Identifier: 5009 Token: <(>
 Line Number: 5 Lexeme: x Identifier: 8120 Token: <id>
 Line Number: 5 Lexeme: * Identifier: 5013 Token: <mul_operator>

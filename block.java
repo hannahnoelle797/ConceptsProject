@@ -70,33 +70,39 @@ public class block {
         }
 
         while (i < size) { // checking each line
-            if (lines.get(i).length() > 0) {
-                if (lines.get(i).contains("if")) {
-                    ArrayList<String> ifBody = getSubList(lines, i);
-                    i = getEnd(i); // i is updated to be the line following the end of the block
-                    s = new statement(0, ifBody);
-                    blockStatements.add(s);
-                } else if (lines.get(i).contains("for")) {
-                    ArrayList<String> forBody = getSubList(lines, i);
-                    i = getEnd(i);
-                    s = new statement(4, forBody);
-                    blockStatements.add(s);
-                } else if (lines.get(i).contains("while")) {
-                    ArrayList<String> whileBody = getSubList(lines, i);
-                    i = getEnd(i);
-                    s = new statement(2, whileBody);
-                    blockStatements.add(s);
-                } else if (lines.get(i).contains("print")) {
-                    i++;
-                    s = new statement(3, lines.get(i - 1));
-                    blockStatements.add(s);
-                } else if (lines.get(i).contains("=")) {
-                    i++;
-                    s = new statement(1, lines.get(i - 1));
-                    blockStatements.add(s);
-                } else if (lines.get(i).contains("end")) {
-                    i++;
+            try {
+                if (lines.get(i).length() > 0) {
+                    if (lines.get(i).contains("if")) {
+                        ArrayList<String> ifBody = getSubList(lines, i);
+                        i = getEnd(i); // i is updated to be the line following the end of the block
+                        s = new statement(0, ifBody);
+                        blockStatements.add(s);
+                    } else if (lines.get(i).contains("for")) {
+                        ArrayList<String> forBody = getSubList(lines, i);
+                        i = getEnd(i);
+                        s = new statement(4, forBody);
+                        blockStatements.add(s);
+                    } else if (lines.get(i).contains("while")) {
+                        ArrayList<String> whileBody = getSubList(lines, i);
+                        i = getEnd(i);
+                        s = new statement(2, whileBody);
+                        blockStatements.add(s);
+                    } else if (lines.get(i).contains("print")) {
+                        i++;
+                        s = new statement(3, lines.get(i - 1));
+                        blockStatements.add(s);
+                    } else if (lines.get(i).contains("=")) {
+                        i++;
+                        s = new statement(1, lines.get(i - 1));
+                        blockStatements.add(s);
+                    } else if (lines.get(i).contains("end")) {
+                        i++;
+                    } else {
+                        throw new JuliaSyntaxException("something");
+                    }
                 }
+            } catch (JuliaSyntaxException e) {
+
             }
         }
     }
