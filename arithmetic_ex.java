@@ -3,6 +3,7 @@
 //Deepa Muralidhar
 //Fall 2019
 
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 
 /**
@@ -170,5 +171,24 @@ public class arithmetic_ex {
             binary.prefix();
             break;
         }
+    }
+
+    public int compute(ArrayList<variable> variables) {
+        int value = -999;
+        if (type == 0) {
+            value = -999;
+        } else if (type == 1) {
+            return literal_integer;
+        } else if (type == 2) {
+            return binary.compute(variables);
+        }
+
+        if (value == -999) {
+            for (int i = 0; i < variables.size(); i++) {
+                if (variables.get(i).getId().equals(id))
+                    return variables.get(i).getValue();
+            }
+        }
+        return -1;
     }
 }

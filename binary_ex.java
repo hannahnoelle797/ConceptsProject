@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 //Hannah Duncan, Colleen Hynes, Mary Le
 //KSU CS 4308 Concepts of Programming Languages
 //Deepa Muralidhar
@@ -105,4 +107,43 @@ public class binary_ex {
         System.out.println();
     }
 
+    public int compute(ArrayList<variable> variables) {
+        int l = left.compute(variables);
+        int r = right.compute(variables);
+        if (l == -999) {
+            l = getValue(variables, left);
+        }
+        if (r == -999) {
+            r = getValue(variables, right);
+        }
+        if (operator.getArithmeticOp().equals("*")) {
+            return (int) l * r;
+        } else if (operator.getArithmeticOp().equals("/")) {
+            return (int) l / r;
+        } else if (operator.getArithmeticOp().equals("+")) {
+            return (int) l + r;
+        } else if (operator.getArithmeticOp().equals("-")) {
+            return (int) l - r;
+        } else if (operator.getArithmeticOp().equals("%")) {
+            return (int) l % r;
+        } else if (operator.getArithmeticOp().equals("\\")) {
+            return (int) r / l;
+        } else {
+            return -999;
+        }
+    }
+
+    public int getValue(ArrayList<variable> variables, arithmetic_ex e) {
+        String id = e.getId();
+        try {
+            for (int i = 0; i < variables.size(); i++) {
+                if ((variables.get(i).getId()).trim().equals(id))
+                    return variables.get(i).getValue();
+            }
+            throw new JuliaSyntaxException("compute");
+        } catch (JuliaSyntaxException jse) {
+
+        }
+        return -1;
+    }
 }

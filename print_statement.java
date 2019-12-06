@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 //Hannah Duncan, Colleen Hynes, Mary Le
 //KSU CS 4308 Concepts of Programming Languages
 //Deepa Muralidhar
@@ -29,5 +31,15 @@ public class print_statement {
     public void toGrammar() {
         System.out.println("<print_statement> -> print ( <arithmetic_expression> )");
         expression.toGrammar();
+    }
+
+    public int compute(ArrayList<variable> variables) {
+        if (expression.getType() == 0) {
+            for (int i = variables.size() - 1; i >= 0; i++) {
+                if (variables.get(i).getId().equals(expression.getId()))
+                    return variables.get(i).getValue();
+            }
+        }
+        return expression.compute(variables);
     }
 }

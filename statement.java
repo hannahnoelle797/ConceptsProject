@@ -86,6 +86,22 @@ public class statement {
         }
     }
 
+    public int getType() {
+        return type;
+    }
+
+    public String getVariableId() {
+        return assignStmt.getId();
+    }
+
+    public int getVariableValue(ArrayList<variable> variables) {
+        return assignStmt.compute(variables);
+    }
+
+    public int getPrintValue(ArrayList<variable> variables) {
+        return printStmt.compute(variables);
+    }
+
     /**
      * toGrammar prints out the grammar of this class. Each class represents the LHS
      * abstraction of the Julia grammar. It then calls the toGrammar for each

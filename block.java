@@ -15,6 +15,7 @@ import java.util.ArrayList;
 public class block {
     private ArrayList<statement> blockStatements = new ArrayList<>();
     private ArrayList<int[]> blockStartsEnds = new ArrayList<>();
+    private ArrayList<variable> variables = new ArrayList<>();
 
     /**
      * Constructor This block constructor takes in an array of expression. These
@@ -173,6 +174,25 @@ public class block {
     public void printContents() {
         for (statement s : blockStatements) {
             s.printContents();
+        }
+    }
+
+    public void getVariables() {
+        variable v;
+        for (statement s : blockStatements) {
+            if (s.getType() == 1) {
+                v = new variable(s.getVariableId(), s.getVariableValue(variables));
+                variables.add(v);
+            }
+        }
+    }
+
+    public void compute() {
+        getVariables();
+        for (statement s : blockStatements) {
+            if (s.getType() == 3) {
+                System.out.println(s.getPrintValue(variables));
+            }
         }
     }
 }

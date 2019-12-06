@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 //Hannah Duncan, Colleen Hynes, Mary Le
 //KSU CS 4308 Concepts of Programming Languages
 //Deepa Muralidhar
@@ -34,6 +36,10 @@ public class assignment_statement {
         return id;
     }
 
+    public arithmetic_ex getExpression() {
+        return expression;
+    }
+
     /**
      * toGrammar prints out the grammar of this class. Each class represents the LHS
      * abstraction of the Julia grammar. It then calls the toGrammar for each
@@ -67,5 +73,16 @@ public class assignment_statement {
         System.out.print("= " + id + " ");
         expression.prefix();
         System.out.println();
+    }
+
+    public int compute(ArrayList<variable> variables) {
+        int value = expression.compute(variables);
+        if (value == -999) {
+            for (int i = 0; i < variables.size(); i++) {
+                if (variables.get(i).id.equals(id))
+                    return variables.get(i).value;
+            }
+        }
+        return value;
     }
 }
