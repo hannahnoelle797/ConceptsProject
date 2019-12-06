@@ -98,6 +98,13 @@ public class statement {
         return assignStmt.compute(variables);
     }
 
+    /**
+     * Computes the value of the contents of the print statement. If -999 is
+     * returned, exception is thrown.
+     * 
+     * @param variables
+     * @return
+     */
     public int getPrintValue(ArrayList<variable> variables) {
         return printStmt.compute(variables);
     }

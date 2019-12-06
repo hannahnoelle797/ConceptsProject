@@ -173,22 +173,30 @@ public class arithmetic_ex {
         }
     }
 
+    /**
+     * Computes and returns the value of the arithmetic expression.
+     */
     public int compute(ArrayList<variable> variables) {
-        int value = -999;
-        if (type == 0) {
-            value = -999;
-        } else if (type == 1) {
-            return literal_integer;
-        } else if (type == 2) {
-            return binary.compute(variables);
+        int value = 0;
+        if (type == 0) { // if expression is an id
+            value = -999; // set value to -999
+        } else if (type == 1) { // if expression is an integer
+            return literal_integer; // return the integer
+        } else if (type == 2) { // if expression is another expression
+            return binary.compute(variables); // compute that expression
         }
-
-        if (value == -999) {
-            for (int i = 0; i < variables.size(); i++) {
-                if (variables.get(i).getId().equals(id))
-                    return variables.get(i).getValue();
+        try {
+            if (value == -999) { // expression is an id
+                for (int i = 0; i < variables.size(); i++) { // search variables array list for id
+                    if (variables.get(i).getId().equals(id))
+                        return variables.get(i).getValue(); // return the value of that variable
+                }
             }
+            if (value == -999) { // variable was not found in above for loop, it does not exist
+                throw new JuliaSyntaxException("compute"); // throw error
+            }
+        } catch (JuliaSyntaxException e) {
         }
-        return -1;
+        return -999;
     }
 }

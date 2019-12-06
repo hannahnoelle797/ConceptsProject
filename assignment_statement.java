@@ -75,14 +75,26 @@ public class assignment_statement {
         System.out.println();
     }
 
+    /**
+     * Returns the value of the expression
+     * 
+     * @param variables
+     * @return
+     */
     public int compute(ArrayList<variable> variables) {
         int value = expression.compute(variables);
-        if (value == -999) {
-            for (int i = 0; i < variables.size(); i++) {
-                if (variables.get(i).id.equals(id))
-                    return variables.get(i).value;
+        try {
+            if (value == -999) { // if value is an id
+                for (int i = 0; i < variables.size(); i++) { // find that id within the array list variables
+                    if (variables.get(i).id.equals(id))
+                        return variables.get(i).value;
+                }
+            } else if (value == -999) { // value is an id but was not found in the above if block
+                throw new JuliaSyntaxException("compute"); // variable does not exist, throw error
             }
+        } catch (JuliaSyntaxException e) {
+
         }
-        return value;
+        return value; // otherwise, return value
     }
 }
