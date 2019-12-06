@@ -36,7 +36,11 @@ public class MyParser {
             }
 
             fileBlock = new block(allLines);
-            fileBlock.toGrammar();
+            // fileBlock.toGrammar();
+
+            System.out.println("\n\n------------------------------------------\nRunning " + filename + "\n");
+            fileBlock.compute();
+            System.out.println("\n------------------------------------------\n" + filename + " run complete.\n");
 
             fileRead.close();
         } catch (FileNotFoundException e) {

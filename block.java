@@ -15,6 +15,7 @@ import java.util.ArrayList;
 public class block {
     private ArrayList<statement> blockStatements = new ArrayList<>();
     private ArrayList<int[]> blockStartsEnds = new ArrayList<>();
+    private ArrayList<variable> variables = new ArrayList<>();
 
     /**
      * Constructor This block constructor takes in an array of expression. These
@@ -174,5 +175,44 @@ public class block {
         for (statement s : blockStatements) {
             s.printContents();
         }
+    }
+
+    /**
+     * Compute method goes through each line. If it is an assignment statement, then
+     * the variable id and value of that id is stored in a variable object. That
+     * variable is then checked against the current variables to see if that same
+     * variable id already exists. If it does, the value of the variable is updated.
+     * If not, it's a new variable, and it's added to the variables list. If the
+     * statement is a print statement, then the contents within the parentheses are
+     * computed and printed.
+     */
+    public void compute() {
+        variable v;
+        for (statement s : blockStatements) {
+            if (s.getType() == 1) { // statement is an assignment statement
+                v = new variable(s.getVariableId(), s.getVariableValue(variables)); // get id and value of statement
+                if (variableExists(v.getId()) != -1) { // if new variable is already in variables array list
+                    variables.get(variableExists(v.getId())).setValue(v.getValue()); // update existing variable
+                } else if (variableExists(v.getId()) == -1) {
+                    variables.add(v); // add new variable
+                }
+            }
+            if (s.getType() == 3) { // print statement
+                System.out.println(s.getPrintValue(variables)); // compute contents of print statement
+            }
+        }
+
+    }
+
+    /**
+     * Checks to see if a variable exists. If it does, it returns the index value of
+     * that variable.
+     */
+    public int variableExists(String id) {
+        for (int i = 0; i < variables.size(); i++) {
+            if (variables.get(i).getId().equals(id))
+                return i;
+        }
+        return -1; // returns -1 if variable is not found
     }
 }

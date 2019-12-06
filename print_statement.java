@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 //Hannah Duncan, Colleen Hynes, Mary Le
 //KSU CS 4308 Concepts of Programming Languages
 //Deepa Muralidhar
@@ -29,5 +31,21 @@ public class print_statement {
     public void toGrammar() {
         System.out.println("<print_statement> -> print ( <arithmetic_expression> )");
         expression.toGrammar();
+    }
+
+    /**
+     * Computes the values of the expression inside the print statement
+     * 
+     * @param variables
+     * @return
+     */
+    public int compute(ArrayList<variable> variables) {
+        if (expression.getType() == 0) { // if the expression is an id
+            for (int i = variables.size() - 1; i >= 0; i--) {
+                if (variables.get(i).getId().equals(expression.getId())) // find the value of that id within variables
+                    return variables.get(i).getValue(); // return that value
+            }
+        }
+        return expression.compute(variables); // otherwise, compute and return the value
     }
 }

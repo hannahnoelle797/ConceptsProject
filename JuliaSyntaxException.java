@@ -25,9 +25,12 @@ public class JuliaSyntaxException extends Exception {
             System.out.println("PRINT STATEMENT ERROR: " + s);
         } else if (s.contains("=")) {
             System.out.println("ASSIGNEMNT STATEMENT ERROR: " + s);
+        } else if (s.contains("compute")) {
+            System.out.println("COMPUTATION ERROR");
         } else {
             System.out.println("UNKNOWN ERROR. PROBLEM WITH SYNTAX");
         }
+        System.out.println("\n\n");
         printStackTrace();
         System.exit(1);
     }

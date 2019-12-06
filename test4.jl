@@ -1,7 +1,5 @@
-for i = 3 : 5
-if i != 4
+i = 3
 print ( i )
-else
+i = 4
+print ( i )
 print ( 333 )
-end 
-end

@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 //Hannah Duncan, Colleen Hynes, Mary Le
 //KSU CS 4308 Concepts of Programming Languages
 //Deepa Muralidhar
@@ -105,4 +107,58 @@ public class binary_ex {
         System.out.println();
     }
 
+    /**
+     * Method computes the variable of the expression
+     * 
+     * @param variables
+     * @return
+     */
+    public int compute(ArrayList<variable> variables) {
+        int l = left.compute(variables); // get value of left side
+        int r = right.compute(variables); // get value of right side
+        if (l == -999) { // if left side is an id
+            l = getValue(variables, left); // get the value from the variables array list
+        }
+        if (r == -999) { // if right side is an id
+            r = getValue(variables, right); // get the value from the variables array list
+        }
+        if (operator.getArithmeticOp().equals("*")) {
+            return (int) l * r;
+        } else if (operator.getArithmeticOp().equals("/")) {
+            return (int) l / r;
+        } else if (operator.getArithmeticOp().equals("+")) {
+            return (int) l + r;
+        } else if (operator.getArithmeticOp().equals("-")) {
+            return (int) l - r;
+        } else if (operator.getArithmeticOp().equals("%")) {
+            return (int) l % r;
+        } else if (operator.getArithmeticOp().equals("\\")) {
+            return (int) r / l;
+        } else {
+            return -999;
+        }
+    }
+
+    /**
+     * If the arithemtic expression is an id, the method finds that id in the
+     * variable array list. The value of that id is then returned. If it is not
+     * found, an error is thrown.
+     * 
+     * @param variables
+     * @param e
+     * @return
+     */
+    public int getValue(ArrayList<variable> variables, arithmetic_ex e) {
+        String id = e.getId(); // get id of arithmetic expression
+        try {
+            for (int i = 0; i < variables.size(); i++) {
+                if ((variables.get(i).getId()).trim().equals(id)) // if variable id matches expression id
+                    return variables.get(i).getValue(); // return the value from the variable array list
+            }
+            throw new JuliaSyntaxException("compute"); // hasn't returned a value yet, so throw an error
+        } catch (JuliaSyntaxException jse) {
+
+        }
+        return -1;
+    }
 }
