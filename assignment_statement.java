@@ -36,6 +36,11 @@ public class assignment_statement {
         return id;
     }
 
+    /**
+     * Returns the arithmetic expression in the assignment statement
+     * 
+     * @return
+     */
     public arithmetic_ex getExpression() {
         return expression;
     }
