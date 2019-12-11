@@ -116,23 +116,24 @@ public class binary_ex {
     public int compute(ArrayList<variable> variables) {
         int l = left.compute(variables); // get value of left side
         int r = right.compute(variables); // get value of right side
+        String op = operator.getArithmeticOp();
         if (l == -999) { // if left side is an id
             l = getValue(variables, left); // get the value from the variables array list
         }
         if (r == -999) { // if right side is an id
             r = getValue(variables, right); // get the value from the variables array list
         }
-        if (operator.getArithmeticOp().equals("*")) {
+        if (op.equals("*")) {
             return (int) l * r;
-        } else if (operator.getArithmeticOp().equals("/")) {
+        } else if (op.equals("/")) {
             return (int) l / r;
-        } else if (operator.getArithmeticOp().equals("+")) {
+        } else if (op.equals("+")) {
             return (int) l + r;
-        } else if (operator.getArithmeticOp().equals("-")) {
+        } else if (op.equals("-")) {
             return (int) l - r;
-        } else if (operator.getArithmeticOp().equals("%")) {
+        } else if (op.equals("%")) {
             return (int) l % r;
-        } else if (operator.getArithmeticOp().equals("\\")) {
+        } else if (op.equals("\\")) {
             return (int) r / l;
         } else {
             return -999;

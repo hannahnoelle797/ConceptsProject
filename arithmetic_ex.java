@@ -182,7 +182,7 @@ public class arithmetic_ex {
             if (type == 0) { // if expression is an id
                 for (int i = 0; i < variables.size(); i++) { // search variables array list for id
                     if (variables.get(i).getId().equals(id)) {
-                        found = true;
+                        found = true; // id was found
                         return variables.get(i).getValue(); // return the value of that variable
                     }
                 }
@@ -193,7 +193,7 @@ public class arithmetic_ex {
             } else {
                 throw new JuliaSyntaxException("compute");
             }
-            if (!found)
+            if (!found) // if found was never set to true and method has not yet returned, throw error
                 throw new JuliaSyntaxException("compute");
         } catch (JuliaSyntaxException e) {
 
